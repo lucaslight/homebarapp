@@ -1,36 +1,14 @@
 .card-wrap {
-  width: 18rem;
+  width: 22rem;
   border: 2px solid black;
   border-radius: 5px;
   background: #FFFFFF;
-  & p {
+  p {
     font-family: $body-font;
     text-align: justify;
   }
 }
 
-.card-stock {
-  background: black;
-  color: $orange-hb;
-  padding: 5px;
-  max-width: fit-content;
-  
-}
-
-.cocktail-name {
-  font-family: $headers-font;
-  text-align: center;
-  font-weight: 100;
-  max-height: fit-content;
-}
-
-.card-header {
-  display: flex;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  justify-content: center;
-  border-bottom: 2px solid black;
-}
 .card-photo {
   background-size: cover;
   background-position: 50% 40%;
@@ -42,4 +20,46 @@
   font-weight: bold;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+.card-header {
+  display: grid;
+  grid-template-columns: 30% 70%;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 2px solid black;
+}
+.card-stock {
+  display: flex;
+  align-items: center;
+  background: black;
+  color: #EE9C19;
+  font-weight: 900;
+  flex-shrink: 0;
+  height: 4rem;
+  justify-content: center;
+  p {
+    margin: 0;
+    padding: 6px;
+  }
+}
+
+.cocktail-name {
+  font-family: $headers-font;
+  text-align: center;
+  font-weight: 100;
+  align-items: center;
+  flex-grow: 2;
+  height: 4rem;
+  display: flex;
+  padding-left: 30px;
+}
+
+.card-ingredients {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3rem;
+  p {
+    margin: 0;
+  }
 }
