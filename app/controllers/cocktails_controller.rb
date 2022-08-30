@@ -4,6 +4,6 @@ class CocktailsController < ApplicationController
   end
 
   def show
-    @cocktail = Cocktail.find_by #(query)
+    @cocktail = Cocktail.find_by(params[:id])
   end
 end
