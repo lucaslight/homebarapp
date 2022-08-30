@@ -8,7 +8,7 @@
 
 puts "Cleaning database..."
 puts "... measurements"
-Measurements.destroy_all
+Measurement.destroy_all
 puts "... cocktails"
 Cocktail.destroy_all
 puts "... users"
@@ -263,26 +263,26 @@ Measurement.create(
     {
       quantity: '1/2',
       unit: 'slice',
-      cocktail_id: cocktails[4].id,
+      cocktail_id: cocktails[5].id,
       ingredient_id: ingredients[11].id
     },
     {
       quantity: '50',
       unit: 'ml',
-      cocktail_id: cocktails[4].id,
+      cocktail_id: cocktails[5].id,
       ingredient_id: ingredients[1].id
     },
     {
       quantity: '120',
       unit: 'ml',
-      cocktail_id: cocktails[4].id,
+      cocktail_id: cocktails[5].id,
       ingredient_id: ingredients[15].id
     },
     {
       quantity: '45',
       unit: 'ml',
       cocktail_id: cocktails[6].id,
-      ingredient_id: ingredients[2].id
+      ingredient_id: ingredients[1].id
     },
     {
       quantity: '120',
@@ -323,32 +323,8 @@ Measurement.create(
     {
       quantity: '45',
       unit: 'ml',
-      cocktail_id: cocktails[7].id,
-      ingredient_id: ingredients[10].id
-    },
-    {
-      quantity: '30',
-      unit: 'ml',
-      cocktail_id: cocktails[7].id,
-      ingredient_id: ingredients[9].id
-    },
-    {
-      quantity: '30',
-      unit: 'ml',
-      cocktail_id: cocktails[7].id,
-      ingredient_id: ingredients[8].id
-    },
-    {
-      quantity: '1',
-      unit: 'zest',
-      cocktail_id: cocktails[7].id,
-      ingredient_id: ingredients[11].id
-    },
-    {
-      quantity: '45',
-      unit: 'ml',
       cocktail_id: cocktails[9].id,
-      ingredient_id: ingredients[16].id
+      ingredient_id: ingredients[17].id
     },
     {
       quantity: '25',
