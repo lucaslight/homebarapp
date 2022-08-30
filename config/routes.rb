@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'pages/uikit'
   get 'cabinets/create'
   get 'cabinets/update'
   get 'saved_cocktails/create'
@@ -10,4 +11,6 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root to: "pages#home"
+
+  get '/uikit', to: 'pages#uikit'
 end
