@@ -1,9 +1,16 @@
 // Import Google fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap');
+// @import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@400;500;600;800&family=Poppins:wght@200;400;500;600;700&display=swap');
+
+// HomeBar agreed fonts:
+$headers-font: "Playfair Display", serif; // For our titles
+$subheading-font: "Poppins", sans-serif; // For H2 fonts
+$body-font: "Lato", sans-serif; // For our body text
+// Button text to be added
 
 // Define fonts for body and headers
-$body-font: "Work Sans", "Helvetica", "sans-serif";
-$headers-font: "Nunito", "Helvetica", "sans-serif";
+// $body-font: "Work Sans", "Helvetica", "sans-serif";
+// $headers-font: "Nunito", "Helvetica", "sans-serif";
 
 // To use a font file (.woff) uncomment following lines
 // @font-face {
