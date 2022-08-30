@@ -8,7 +8,7 @@
 
 puts "Cleaning database..."
 puts "... measurements"
-Measurements.destroy_all
+Measurement.destroy_all
 puts "... cocktails"
 Cocktail.destroy_all
 puts "... users"

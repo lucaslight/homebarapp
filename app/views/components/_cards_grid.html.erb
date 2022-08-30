@@ -1,0 +1,15 @@
+<div class="cards">
+  <% @cocktails = Cocktail.all %>
+  <% @cocktails.each do |cocktail| %>
+  <div class="card-wrap">
+    <div class="card-photo" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://dosmaderas.com/wp-content/uploads/2021/10/Dos-Maderas-rum-Cocktail-Espresso-Martini-HERO-6.jpg)"></div>
+    <div class="card-header">
+      <div class="card-stock"><p>Ready To Go</p></div>
+      <div class="cocktail-name"><h4><%= cocktail.name %></h4></div>
+    </div>
+      <% cocktail.ingredients.each do |ingredient| %>
+    <div class="card-ingredients"><p><%= ingredient.name %></p></div>
+      <% end %>
+  </div>
+  <% end %>
+</div>

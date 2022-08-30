@@ -1,6 +1,6 @@
 .card-wrap {
   width: 22rem;
-  border: 2px solid $black-hb;
+  border: 2px solid black;
   border-radius: 5px;
   background: #FFFFFF;
   p {
@@ -23,12 +23,12 @@
   grid-template-columns: 30% 70%;
   align-items: center;
   justify-content: center;
-  border-bottom: 2px solid $black-hb;
+  border-bottom: 2px solid black;
 }
 .card-stock {
   display: flex;
   align-items: center;
-  background: $black-hb;
+  background: black;
   color: #EE9C19;
   font-weight: 900;
   flex-shrink: 0;
