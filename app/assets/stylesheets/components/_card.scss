@@ -1,6 +1,6 @@
 .card-wrap {
   width: 22rem;
-  border: 2px solid black;
+  border: 2px solid $black-hb;
   border-radius: 5px;
   background: #FFFFFF;
   p {
@@ -16,9 +16,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 24px;
-  font-weight: bold;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 .card-header {
@@ -26,12 +23,12 @@
   grid-template-columns: 30% 70%;
   align-items: center;
   justify-content: center;
-  border-bottom: 2px solid black;
+  border-bottom: 2px solid $black-hb;
 }
 .card-stock {
   display: flex;
   align-items: center;
-  background: black;
+  background: $black-hb;
   color: #EE9C19;
   font-weight: 900;
   flex-shrink: 0;
