@@ -4,6 +4,13 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :saved_cocktails
+  has_many :cocktails, through: :saved_cocktails
+
+  has_many :cabinets
+  has_many :ingredients, through: :cabinets
+
+
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :age, presence: true
