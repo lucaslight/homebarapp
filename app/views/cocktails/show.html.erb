@@ -17,11 +17,14 @@
   <div class="show-card-bottom">
     <div class="show-card-method">
     <p><strong>Method:</strong><%= @cocktail.instructions %></p>
-    <% if @cocktail.alcoholic == true %>
-      <p><i>Contains alcohol</i></p>
-      <% elsif %>
-      <p><i>Does not contain alcohol</i></p>
-      <% end %>
+    </div>
+    <div class="show-card-footer">
+        <% if @cocktail.alcoholic == true %>
+        <p><i>Contains alcohol</i></p>
+        <% elsif %>
+        <br>
+        <p><i>Does not contain alcohol</i></p>
+        <% end %>
     </div>
   </div>
 </div>
