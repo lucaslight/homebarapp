@@ -1,5 +1,6 @@
 
 <div class="container card-container">
+  <%= render "components/cabinet", user_ingredients: @user_ingredients_in_stock %>
 
   <div class="search container">
     <h1>Search for your relevant cocktails here</h1>
@@ -33,9 +34,11 @@
   <div class="index container card-body">
     <h1>All the cocktails</h1>
 
+
     <div class="card">
       <% @cocktails.each do |cocktail| %>
         <h2> <%= link_to cocktail.name, cocktail_path(cocktail.id) %></h2>
+
 
         <% cocktail.measurements.each do |measurement| %>
           <p><%= measurement.quantity %> <%= measurement.unit %> <%= @ingredients.find(measurement.ingredient_id).name %></p>
