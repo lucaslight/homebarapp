@@ -3,8 +3,11 @@
   <div class="search container">
     <h1>Search for your relevant cocktails here</h1>
 
-    
+
     <% ingredient_id = Ingredient.find_by(name:'Vodka').id %>
+    <% if Cabinet %>
+      <% Cabinet.new(ingredient_id)  %>
+
     <p>You searched for: <%= @ingredients.find_by(id:ingredient_id).name %></p>
 
     <% found_cocktails_id = [] %>
