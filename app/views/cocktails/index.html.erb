@@ -4,9 +4,23 @@
     <h1>Search for your relevant cocktails here</h1>
 
 
-    <% ingredient_id = Ingredient.find_by(name:'Vodka').id %>
-    <% if Cabinet %>
-      <% Cabinet.new(ingredient_id)  %>
+    <% search_id = Ingredient.find_by(name:search_query).id %>
+
+    <%# user writes in ingredient in search bar %>
+
+
+    <%# if cabinet has an instance with current user id + that ingredient id, with in_stock %>
+    <% idk = Cabinet.where(ingredient_id: search_id, user_id: current_user.id) %>
+    <% if idk.any? && idk.in_stock == true %>
+      <p>This is already in ur cabinet</p>
+    <% elsif idk.any? && idk.in_stock == false %>
+      <p>You have <%= search_id.name %> again yay!</p>
+      <% idk.in_stock = true %>
+    <% elsif idk.any? == false %>
+      <% Cabinet.create!(ingredient_id: search_id, user_id: current_user.id) %>
+    <% end %>
+
+
 
     <p>You searched for: <%= @ingredients.find_by(id:ingredient_id).name %></p>
 
