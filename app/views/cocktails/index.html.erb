@@ -1,50 +1,58 @@
 
 <div class="container card-container">
-  <h1>All the cocktails</h1>
-	<div class="cards">
-    <% @cocktails.each do |cocktail| %>
 
-    <% @cocktail = cocktail %>
-      <% link_to "CLICK HERE", cocktail_path(cocktail.id) %>
-  <div class="index-card-wrap">
-    <div class="index-card-header">
-      <div class="index-card-stock"><p>Ready To Go</p></div>
-      <div class="index-cocktail-name"><h4><%= cocktail.name %></h4></div>
-    </div>
-    <div class="index-card-bottom">
-      <ul class="list-inline">
-      <%# Displaying only the first three ingredients in a cocktail index-card %>
-      <% cocktail.measurements.each do |measurement| %>
-      <li class="list-inline-item"><div class="index-card-ingredients"><p><%= measurement.quantity %> <%= measurement.unit %> <%= @ingredients.find(measurement.ingredient_id).name %>,</p></div></li>
-      <% end %>
-      </ul>
-    </div>
-  </div>
-  <% end %>
-</div>
+  <div class="search container">
+    <h1>Search for your relevant cocktails here</h1>
+    
+    <% ingredient_id = Ingredient.find_by(name:'Vodka').id %>
+    <p>You searched for: <%= @ingredients.find_by(id:ingredient_id).name %></p>
 
-
-  <div class="card">
-    <% @cocktails.each do |cocktail| %>
-
-      <% @cocktail = cocktail %>
-      <%= link_to "CLICK HERE", cocktail_path(cocktail.id) %>
-      <%# THIS DOES NOT WORK!! :( %>
-
-
-      <h2> <%= cocktail.id %>/ <%= cocktail.name %></h2>
-      <% cocktail.measurements.each do |measurement| %>
-        <p><%= measurement.quantity %> <%= measurement.unit %> <%= @ingredients.find(measurement.ingredient_id).name %></p>
-      <% end %>
-      <br>
-      <p><strong>Method:</strong> <%= cocktail.instructions %></p>
-
-      <% if cocktail.alcoholic == true %>
-        <p><i>Contains alcohol</i></p>
-      <% elsif %>
-        <p><i>Does not contain alcohol</i></p>
-      <% end %>
-
+    <% found_cocktails_id = [] %>
+    <% array = Measurement.where(ingredient_id:ingredient_id).to_a %>
+    <% array.each do |item| %>
+      <%# returns array of instances of measurement %>
+      <% found_cocktail_id = item.cocktail_id %>
+      <% found_cocktails_id << found_cocktail_id %>
     <% end %>
+
+    <p>these are all the cocktails with <%= @ingredients.find_by(id:ingredient_id).name %>: </p>
+
+    <% all_found_cocktails = [] %>
+    <ul><% found_cocktails_id.each do |id| %>
+      <% cocktail = Cocktail.find_by(id:id) %>
+      <li><%= cocktail.name %></li>
+      <% all_found_cocktails << cocktail %>
+    <% end %></ul>
+
+
+
+    <br><br><br>
+
   </div>
+
+  <div class="index container card-body">
+    <h1>All the cocktails</h1>
+
+    <div class="card">
+      <% @cocktails.each do |cocktail| %>
+        <h2> <%= link_to cocktail.name, cocktail_path(cocktail.id) %></h2>
+
+        <% cocktail.measurements.each do |measurement| %>
+          <p><%= measurement.quantity %> <%= measurement.unit %> <%= @ingredients.find(measurement.ingredient_id).name %></p>
+        <% end %>
+        <br>
+
+        <p><strong>Method:</strong> <%= cocktail.instructions %></p>
+
+        <% if cocktail.alcoholic == true %>
+          <p><i>Contains alcohol</i></p>
+        <% elsif %>
+          <p><i>Does not contain alcohol</i></p>
+        <% end %>
+
+      <% end %>
+    </div>
+
+  </div>
+
 </div>
