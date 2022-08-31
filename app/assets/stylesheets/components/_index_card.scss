@@ -42,7 +42,6 @@
 
 .index-cocktail-name {
   font-family: $headers-font;
-  text-align: center;
   font-weight: 100;
   align-items: center;
   flex-grow: 2;
@@ -51,11 +50,15 @@
   padding-left: 30px;
 }
 
+.index-card-bottom {
+  height: 5rem;
+  padding: 5px;
+}
+
 .index-card-ingredients {
   display: flex;
   justify-content: left;
   align-items: center;
-  height: 2rem;
   p {
     margin: 0;
   }

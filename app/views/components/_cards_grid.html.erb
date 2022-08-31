@@ -1,19 +1,33 @@
+<h6>Index Card</h6>
+<div class="index-card-wrap">
+  <div class="index-card-header">
+    <div class="index-card-stock"><p>Ready To Go</p></div>
+    <div class="index-cocktail-name"><h4>Espresso Martini</h4></div>
+  </div>
+  <div class="index-card-bottom">
+    <div class="index-card-ingredients"><p>Vodka, Kaluah and Espresso Coffee Beans, Vodka, Kaluah and Espresso Coffee Beans, Vodka, Kaluah, Coffee Beans, Vodka, Kaluah</p></div>
+  </div>
+</div>
+
+<br>
+
 <div class="cards">
   <% @cocktails = Cocktail.all %>
   <% @cocktails.each do |cocktail| %>
   <div class="index-card-wrap">
-    <%# <div class="index-card-photo" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://dosmaderas.com/wp-content/uploads/2021/10/Dos-Maderas-rum-Cocktail-Espresso-Martini-HERO-6.jpg)"></div> %>
     <div class="index-card-header">
       <div class="index-card-stock"><p>Ready To Go</p></div>
-      <div class="cocktail-name"><h4><%= cocktail.name %></h4></div>
+      <div class="index-cocktail-name"><h4><%= cocktail.name %></h4></div>
     </div>
-      <ul>
+    <div class="index-card-bottom">
+      <ul class="list-inline">
       <%# Displaying only the first three ingredients in a cocktail index-card %>
       <% displayed_ingredients = cocktail.ingredients.first(3) %>
       <% displayed_ingredients.each do |ingredient| %>
-      <li><div class="index-card-ingredients"><p><%= ingredient.name %></p></div></li>
+      <li class="list-inline-item"><div class="index-card-ingredients"><p><%= ingredient.name %>,</p></div></li>
       <% end %>
       </ul>
+    </div>
   </div>
   <% end %>
 </div>
