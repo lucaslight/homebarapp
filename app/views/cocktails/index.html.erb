@@ -1,44 +1,50 @@
 
 <div class="container card-container">
+
   <%= render "components/cabinet", user_ingredients: @user_ingredients_in_stock %>
 
   <div class="search container">
     <h1>Search for your relevant cocktails here</h1>
 
+    <% if params[:search_query] && current_user %>
+      <%# <% search_id = Ingredient.find_by(name:params[:search_query]).id %>
+      <% search_id = Ingredient.find_by(name: params[:search_query].capitalize).id %>
+
+      <%# user writes in ingredient in search bar %>
 
 
-    <% search_id = Ingredient.find_by(name:search_query).id %>
+      <%# if cabinet has an instance with current user id + that ingredient id, with in_stock %>
+      <% idk = Cabinet.find_by(ingredient_id: search_id, user: current_user) %>
+      <% if idk && idk.in_stock == true %>
+        <p>This is already in ur cabinet</p>
+      <% elsif idk && idk.in_stock == false %>
+        <p>You have <%= search_id.name %> again yay!</p>
+        <% idk.in_stock = true %>
+      <% elsif idk == nil %>
+        <% Cabinet.create!(ingredient_id: search_id, user: current_user) %>
+      <% end %>
 
-    <%# user writes in ingredient in search bar %>
-
-
-    <%# if cabinet has an instance with current user id + that ingredient id, with in_stock %>
-    <% idk = Cabinet.where(ingredient_id: search_id, user_id: current_user.id) %>
-    <% if idk.any? && idk.in_stock == true %>
-      <p>This is already in ur cabinet</p>
-    <% elsif idk.any? && idk.in_stock == false %>
-      <p>You have <%= search_id.name %> again yay!</p>
-      <% idk.in_stock = true %>
-    <% elsif idk.any? == false %>
-      <% Cabinet.create!(ingredient_id: search_id, user_id: current_user.id) %>
     <% end %>
 
 
 
 
 
-
-    <p>You searched for: <%= @ingredients.find_by(id:ingredient_id).name %></p>
+    <%# <p>You searched for: <%= Ingredient.find_by(id:search_id).name %>
+    <% search_id = Ingredient.find_by(name: params[:search_query].capitalize).id %>
+    <%= Ingredient.find(search_id).cocktails.count %>
+    <%# params[:search_query].capitalize.cocktails%>
 
     <% found_cocktails_id = [] %>
-    <% array = Measurement.where(ingredient_id:ingredient_id).to_a %>
+    <% array = Measurement.where(ingredient_id: search_id) %>
     <% array.each do |item| %>
       <%# returns array of instances of measurement %>
       <% found_cocktail_id = item.cocktail_id %>
       <% found_cocktails_id << found_cocktail_id %>
     <% end %>
+    <% found_cocktails_id %>
 
-    <p>these are all the cocktails with <%= @ingredients.find_by(id:ingredient_id).name %>: </p>
+    <%# <p>these are all the cocktails with <%= @ingredients.find_by(id:search_id).name %>
 
     <% all_found_cocktails = [] %>
     <ul><% found_cocktails_id.each do |id| %>
