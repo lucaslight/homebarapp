@@ -1,20 +1,46 @@
 .banner {
   background-size: cover;
   background-position: center;
-  padding: 150px 0;
+  height: 100vh;
+  display:flex;
+  padding: 48px;
+  align-items: flex-end;
+  justify-content: start;
+}
+
+.banner-box {
+  /* From https://css.glass */
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  // border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.banner-grid {
+  display: grid;
+  grid-template-columns: 80% 20%;
+  gap: 1.5rem;
 }
 
 .banner h1 {
+  font-family: $headers-font;
   margin: 0;
   color: $orange-hb;
-  // text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  font-size: 32px;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+  font-size: 48px;
   font-weight: bold;
 }
 
 .banner p {
-  font-size: 20px;
+  font-family: $subheading-font;
+  font-size: 24px;
   color: $black-hb;
   opacity: .7;
-  // text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  margin-top: 16px;
+  padding-right: 48px;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+  margin-bottom: 0px;
 }
