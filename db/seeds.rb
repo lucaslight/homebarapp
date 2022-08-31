@@ -349,4 +349,26 @@ Measurement.create(
 
 puts "Finished creating #{Measurement.count} measurements"
 
+Cabinet.create!(
+  [
+    {
+      user_id: User.last.id,
+      ingredient_id: ingredients[6].id,
+      in_stock: true
+    },
+
+    {
+      user_id: User.last.id,
+      ingredient_id: ingredients[1].id,
+      in_stock: true
+    },
+
+    {
+      user_id: User.last.id,
+      ingredient_id: ingredients[3].id,
+      in_stock: false
+    }
+  ]
+)
+
 puts "Enjoy coding! :)"
