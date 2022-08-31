@@ -1,6 +1,17 @@
 <h1>Cocktails#show</h1>
-<p>Find me in app/views/cocktails/show.html.erb</p>
 
-<h2>Name:<%= cocktail.name %></h2>
-<p>Instruction: <%= cocktail.instructions %></p>
-<p>Alcohol?<%= cocktail.alcoholic %></p>
+<h2>Name:<%= @cocktail.name %></h2>
+
+<% @cocktail.measurements.each do |measurement| %>
+  <p><%= measurement.quantity %> <%= measurement.unit %> of <%= @ingredients.find(measurement.ingredient_id).name %></p>
+<% end %>
+
+<p><strong>Method:</strong> <%= @cocktail.instructions %></p>
+
+<% if @cocktail.alcoholic == true %>
+  <p><i>Contains alcohol!</i></p>
+<% elsif %>
+  <p><i>Does not contain alcohol</i></p>
+<% end %>
+
+<%= link_to "Back to all cocktails", cocktails_path %>

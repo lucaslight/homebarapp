@@ -17,35 +17,35 @@ puts "Database is clean."
 
 puts 'Creating users...'
 
-User.create(
+User.create!(
   [
     {
       first_name: 'Lucas',
       last_name: 'Luz',
-      email: 'lucas@homebar.eu',
-      encrypted_password: 'batch929',
-      age: '32'
+      email: 'lucas@homebarapp.eu',
+      password: 'batch929',
+      birth_date: Date.new(1989, 12, 18)
     },
     {
       first_name: 'Adrienne',
       last_name: 'Robert',
-      email: 'adrienne@homebar.eu',
-      encrypted_password: 'batch929',
-      age: '26'
+      email: 'adrienne@homebarapp.eu',
+      password: 'batch929',
+      birth_date: Date.new(1996, 8, 29)
     },
     {
       first_name: 'Onofre',
       last_name: 'Catala',
-      email: 'ono@homebar.eu',
-      encrypted_password: 'batch929',
-      age: '44'
+      email: 'ono@homebarapp.eu',
+      password: 'batch929',
+      birth_date: Date.new(1978, 7, 29)
     },
     {
       first_name: 'Alvaro',
       last_name: 'Trujillo',
-      email: 'alvaro@homebar.eu',
-      encrypted_password: 'batch929',
-      age: '27'
+      email: 'alvaro@homebarapp.eu',
+      password: 'batch929',
+      birth_date: Date.new(1995, 1, 13)
     }
   ]
 )
@@ -263,26 +263,26 @@ Measurement.create(
     {
       quantity: '1/2',
       unit: 'slice',
-      cocktail_id: cocktails[4].id,
+      cocktail_id: cocktails[5].id,
       ingredient_id: ingredients[11].id
     },
     {
       quantity: '50',
       unit: 'ml',
-      cocktail_id: cocktails[4].id,
+      cocktail_id: cocktails[5].id,
       ingredient_id: ingredients[1].id
     },
     {
       quantity: '120',
       unit: 'ml',
-      cocktail_id: cocktails[4].id,
+      cocktail_id: cocktails[5].id,
       ingredient_id: ingredients[15].id
     },
     {
       quantity: '45',
       unit: 'ml',
       cocktail_id: cocktails[6].id,
-      ingredient_id: ingredients[2].id
+      ingredient_id: ingredients[1].id
     },
     {
       quantity: '120',
@@ -323,32 +323,8 @@ Measurement.create(
     {
       quantity: '45',
       unit: 'ml',
-      cocktail_id: cocktails[7].id,
-      ingredient_id: ingredients[10].id
-    },
-    {
-      quantity: '30',
-      unit: 'ml',
-      cocktail_id: cocktails[7].id,
-      ingredient_id: ingredients[9].id
-    },
-    {
-      quantity: '30',
-      unit: 'ml',
-      cocktail_id: cocktails[7].id,
-      ingredient_id: ingredients[8].id
-    },
-    {
-      quantity: '1',
-      unit: 'zest',
-      cocktail_id: cocktails[7].id,
-      ingredient_id: ingredients[11].id
-    },
-    {
-      quantity: '45',
-      unit: 'ml',
       cocktail_id: cocktails[9].id,
-      ingredient_id: ingredients[16].id
+      ingredient_id: ingredients[17].id
     },
     {
       quantity: '25',
