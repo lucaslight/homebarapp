@@ -1,8 +1,20 @@
-<div class="card-wrap">
-  <div class="card-photo" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://dosmaderas.com/wp-content/uploads/2021/10/Dos-Maderas-rum-Cocktail-Espresso-Martini-HERO-6.jpg)"></div>
-  <div class="card-header">
-    <div class="card-stock"><p>Ready To Go</p></div>
-    <div class="cocktail-name"><h4>Espresso Martini</h4></div>
+<h6>Show Card</h6>
+<div class="show-card-wrap">
+    <div class="show-cocktail-name"><h4><%= Cocktail.first.name %></h4></div>
+  <div class="show-card-header">
+    <div class="show-card-ingredients">
+      <ul>
+        <p class="text-head"><strong>Ingredients</strong></p>
+        <li>Vodka</li>
+        <li>Kaluah</li>
+        <li>Espresso</li>
+        <li>Coffee Beans</li>
+      </ul>
+    </div>
+    <div class="show-card-photo" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://dosmaderas.com/wp-content/uploads/2021/10/Dos-Maderas-rum-Cocktail-Espresso-Martini-HERO-6.jpg)"></div>
   </div>
-  <div class="card-ingredients"><p>Vodka, Kaluah and Espresso Coffee Beans</p></div>
+
+  <div class="show-card-bottom">
+    <div class="show-card-method"><p><%= Cocktail.first.instructions %></p></div>
+  </div>
 </div>

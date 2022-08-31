@@ -1,7 +1,7 @@
-.card-wrap {
+.index-card-wrap {
   width: 22rem;
-  border: 2px solid $black-hb;
-  border-radius: 5px;
+  border: 2px solid black;
+  border-radius: 2px;
   background: #FFFFFF;
   p {
     font-family: $body-font;
@@ -9,7 +9,7 @@
   }
 }
 
-.card-photo {
+.index-card-photo {
   background-size: cover;
   background-position: 50% 40%;
   height: 180px;
@@ -18,17 +18,17 @@
   align-items: center;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
-.card-header {
+.index-card-header {
   display: grid;
   grid-template-columns: 30% 70%;
   align-items: center;
   justify-content: center;
-  border-bottom: 2px solid $black-hb;
+  border-bottom: 2px solid black;
 }
-.card-stock {
+.index-card-stock {
   display: flex;
   align-items: center;
-  background: $black-hb;
+  background: black;
   color: #EE9C19;
   font-weight: 900;
   flex-shrink: 0;
@@ -40,9 +40,8 @@
   }
 }
 
-.cocktail-name {
+.index-cocktail-name {
   font-family: $headers-font;
-  text-align: center;
   font-weight: 100;
   align-items: center;
   flex-grow: 2;
@@ -51,12 +50,20 @@
   padding-left: 30px;
 }
 
-.card-ingredients {
+.index-card-bottom {
+  height: 5rem;
+  padding: 5px;
+}
+
+.index-card-ingredients {
   display: flex;
-  justify-content: center;
+  justify-content: left;
   align-items: center;
-  height: 3rem;
   p {
     margin: 0;
   }
+}
+
+ul {
+  margin-bottom: 0;
 }
