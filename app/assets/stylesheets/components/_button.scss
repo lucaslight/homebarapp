@@ -10,6 +10,11 @@
   display: inline-block;
 }
 
+.btn-ghost .ingredient {
+  display: flex;
+
+}
+
 .btn-ghost:hover {
   opacity: 1;
   color: $black-hb !important;
