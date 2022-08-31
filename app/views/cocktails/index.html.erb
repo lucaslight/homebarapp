@@ -2,6 +2,8 @@
 <div class="container card-container">
   <h1>All the cocktails</h1>
 
+  <%= render "components/cabinet", user_ingredients: @user_ingredients_in_stock %>
+
   <div class="card">
     <% @cocktails.each do |cocktail| %>
 

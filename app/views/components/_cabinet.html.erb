@@ -12,12 +12,10 @@
   </div>
 
   <div class="cabinet-ingredients">
-    <div class="btn-ghost ingredient">
-      <p>Ingredient<a href="#" target="_blank" class="fa-solid fa-xmark fa-xl"></a></p>
-    </div>
-
-    <div class="btn-ghost ingredient">
-      <p>Ingredient<a href="#" target="_blank" class="fa-solid fa-xmark fa-xl"></a></p>
-    </div>
+    <% user_ingredients.each do |item| %>
+      <div class="btn-ghost ingredient">
+        <p><%= item.ingredient.name %><a href="#" target="_blank" class="fa-solid fa-xmark fa-xl"></a></p>
+      </div>
+    <% end %>
   </div>
 </div>
