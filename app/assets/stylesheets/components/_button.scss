@@ -1,4 +1,5 @@
 .btn-ghost {
+  font-family: $body-font;
   color: $black-hb;
   border: 1px solid $black-hb;
   padding: 8px 24px;
@@ -15,6 +16,7 @@
 }
 
 .btn-flat {
+  font-family: $body-font;
   color: white;
   padding: 8px 24px;
   border-radius: 4px;
@@ -30,6 +32,7 @@
 }
 
 .btn-gradient {
+  font-family: $body-font;
   color: white;
   padding: 8px 24px;
   border-radius: 4px;

@@ -1,0 +1,48 @@
+.footer {
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1rem;
+  padding-right: 1rem;
+  padding-left: 0.5rem;
+  border-top: 1px solid $black-hb;
+}
+.footer-links {
+  display: flex;
+  align-items: start;
+}
+.footer-links a {
+  color: $black-hb;
+  opacity: 0.4;
+  text-decoration: none;
+  font-size: 24px;
+  padding: 0px 10px;
+}
+
+.footer-links a:hover {
+  opacity: 1;
+}
+
+.footer-authors {
+  font-family: $body-font;
+  font-size: 24px;
+  padding: 0px 10px;
+}
+
+.footer-authors h6 {
+  color: $black-hb;
+  opacity: 0.4;
+}
+
+.footer-authors h6 a {
+  color: $black-hb;
+}
+
+.footer-authors h6:hover {
+  opacity: 1;
+}
+
+.footer-authors .fas:hover {
+  color: $orange-hb;
+}
