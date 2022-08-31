@@ -1,6 +1,28 @@
 
 <div class="container card-container">
   <h1>All the cocktails</h1>
+	<div class="cards">
+    <% @cocktails.each do |cocktail| %>
+
+    <% @cocktail = cocktail %>
+      <% link_to "CLICK HERE", cocktail_path(cocktail.id) %>
+  <div class="index-card-wrap">
+    <div class="index-card-header">
+      <div class="index-card-stock"><p>Ready To Go</p></div>
+      <div class="index-cocktail-name"><h4><%= cocktail.name %></h4></div>
+    </div>
+    <div class="index-card-bottom">
+      <ul class="list-inline">
+      <%# Displaying only the first three ingredients in a cocktail index-card %>
+      <% cocktail.measurements.each do |measurement| %>
+      <li class="list-inline-item"><div class="index-card-ingredients"><p><%= measurement.quantity %> <%= measurement.unit %> <%= @ingredients.find(measurement.ingredient_id).name %>,</p></div></li>
+      <% end %>
+      </ul>
+    </div>
+  </div>
+  <% end %>
+</div>
+
 
   <div class="card">
     <% @cocktails.each do |cocktail| %>
