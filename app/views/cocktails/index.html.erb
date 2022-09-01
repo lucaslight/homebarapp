@@ -1,90 +1,92 @@
+<div class="main-content container">
 
-<div class="container card-container">
+  <div class="container card-container">
 
-  <%= render "components/cabinet", user_ingredients: @user_ingredients_in_stock %>
+    <%= render "components/cabinet", user_ingredients: @user_ingredients_in_stock %>
 
-  <div class="search container">
-    <h1>Search for your relevant cocktails here</h1>
+    <div class="search container">
+      <h1>Search for your relevant cocktails here</h1>
 
-    <% if params[:search_query] && current_user %>
-      <%# <% search_id = Ingredient.find_by(name:params[:search_query]).id %>
+      <% if params[:search_query] && current_user %>
+        <%# <% search_id = Ingredient.find_by(name:params[:search_query]).id %>
+        <%# <% search_id = Ingredient.find_by(name: params[:search_query].capitalize).id %>
+      <% search_id = "" %>
+        <%# user writes in ingredient in search bar %>
+
+
+        <%# if cabinet has an instance with current user id + that ingredient id, with in_stock %>
+        <% idk = Cabinet.find_by(ingredient_id: search_id, user: current_user) %>
+        <% if idk && idk.in_stock == true %>
+          <p>This is already in ur cabinet</p>
+        <% elsif idk && idk.in_stock == false %>
+          <p>You have <%= search_id.name %> again yay!</p>
+          <% idk.in_stock = true %>
+        <% elsif idk == nil %>
+          <% Cabinet.create!(ingredient_id: search_id, user: current_user) %>
+        <% end %>
+
+      <% end %>
+
+
+
+
+
+      <%# <p>You searched for: <%= Ingredient.find_by(id:search_id).name %>
       <%# <% search_id = Ingredient.find_by(name: params[:search_query].capitalize).id %>
-    <% search_id = "" %>
-      <%# user writes in ingredient in search bar %>
 
+      <%# <%= Ingredient.find(search_id).cocktails.count %>
+      <%# params[:search_query].capitalize.cocktails%>
 
-      <%# if cabinet has an instance with current user id + that ingredient id, with in_stock %>
-      <% idk = Cabinet.find_by(ingredient_id: search_id, user: current_user) %>
-      <% if idk && idk.in_stock == true %>
-        <p>This is already in ur cabinet</p>
-      <% elsif idk && idk.in_stock == false %>
-        <p>You have <%= search_id.name %> again yay!</p>
-        <% idk.in_stock = true %>
-      <% elsif idk == nil %>
-        <% Cabinet.create!(ingredient_id: search_id, user: current_user) %>
+      <% found_cocktails_id = [] %>
+      <% array = Measurement.where(ingredient_id: search_id) %>
+      <% array.each do |item| %>
+        <%# returns array of instances of measurement %>
+        <% found_cocktail_id = item.cocktail_id %>
+        <% found_cocktails_id << found_cocktail_id %>
       <% end %>
+      <% found_cocktails_id %>
 
-    <% end %>
+      <%# <p>these are all the cocktails with <%= @ingredients.find_by(id:search_id).name %>
 
-
-
-
-
-    <%# <p>You searched for: <%= Ingredient.find_by(id:search_id).name %>
-    <%# <% search_id = Ingredient.find_by(name: params[:search_query].capitalize).id %>
-
-    <%# <%= Ingredient.find(search_id).cocktails.count %>
-    <%# params[:search_query].capitalize.cocktails%>
-
-    <% found_cocktails_id = [] %>
-    <% array = Measurement.where(ingredient_id: search_id) %>
-    <% array.each do |item| %>
-      <%# returns array of instances of measurement %>
-      <% found_cocktail_id = item.cocktail_id %>
-      <% found_cocktails_id << found_cocktail_id %>
-    <% end %>
-    <% found_cocktails_id %>
-
-    <%# <p>these are all the cocktails with <%= @ingredients.find_by(id:search_id).name %>
-
-    <% all_found_cocktails = [] %>
-    <ul><% found_cocktails_id.each do |id| %>
-      <% cocktail = Cocktail.find_by(id:id) %>
-      <li><%= cocktail.name %></li>
-      <% all_found_cocktails << cocktail %>
-    <% end %></ul>
+      <% all_found_cocktails = [] %>
+      <ul><% found_cocktails_id.each do |id| %>
+        <% cocktail = Cocktail.find_by(id:id) %>
+        <li><%= cocktail.name %></li>
+        <% all_found_cocktails << cocktail %>
+      <% end %></ul>
 
 
 
-    <br><br><br>
+      <br><br><br>
 
-  </div>
+    </div>
 
-  <div class="index container card-body">
-    <h1>All the cocktails</h1>
-
-
-    <div class="card">
-      <% @cocktails.each do |cocktail| %>
-        <h2> <%= link_to cocktail.name, cocktail_path(cocktail.id) %></h2>
+    <div class="index container card-body">
+      <h1>All the cocktails</h1>
 
 
-        <% cocktail.measurements.each do |measurement| %>
-          <p><%= measurement.quantity %> <%= measurement.unit %> <%= @ingredients.find(measurement.ingredient_id).name %></p>
+      <div class="card">
+        <% @cocktails.each do |cocktail| %>
+          <h2> <%= link_to cocktail.name, cocktail_path(cocktail.id) %></h2>
+
+
+          <% cocktail.measurements.each do |measurement| %>
+            <p><%= measurement.quantity %> <%= measurement.unit %> <%= @ingredients.find(measurement.ingredient_id).name %></p>
+          <% end %>
+          <br>
+
+          <p><strong>Method:</strong> <%= cocktail.instructions %></p>
+
+          <% if cocktail.alcoholic == true %>
+            <p><i>Contains alcohol</i></p>
+          <% elsif %>
+            <p><i>Does not contain alcohol</i></p>
+          <% end %>
+
         <% end %>
-        <br>
+      </div>
 
-        <p><strong>Method:</strong> <%= cocktail.instructions %></p>
-
-        <% if cocktail.alcoholic == true %>
-          <p><i>Contains alcohol</i></p>
-        <% elsif %>
-          <p><i>Does not contain alcohol</i></p>
-        <% end %>
-
-      <% end %>
     </div>
 
   </div>
-
 </div>
