@@ -35,7 +35,7 @@
       <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
       <meta name="theme-color" content="#ffffff">
       <%# Favicon end %>
-
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
@@ -57,7 +57,7 @@
     <div class="footer-container"> <%# section 3/3 %>
       <%= render "shared/footer" %>
     </div>
-    
+
   </div>
 
   </body>
