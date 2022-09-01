@@ -6,15 +6,16 @@
     </div>
     <div class="search-results">
       <button name="button" type="submit" class="btn-flat">Add ingredient</button>
-      <h5>XX Ingredients</h5>
+      <h5><%= @user_ingredients_in_stock.length %> Ingredients</h5>
       <h5>XX Cocktails</h5>
     </div>
   </div>
 
   <div class="cabinet-ingredients">
     <% user_ingredients.each do |item| %>
-      <div class="btn-ghost ingredient">
-        <p><%= item.ingredient.name %><a href="#" target="_blank" class="fa-solid fa-xmark fa-xl"></a></p>
+      <div class="btn-ghost ingredient d-flex align-items-center">
+        <%= item.ingredient.name %>
+        <%= button_to "X", change_path(item.id), method: :patch, class: "remover" %>
       </div>
     <% end %>
   </div>

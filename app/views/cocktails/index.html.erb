@@ -8,8 +8,7 @@
 
     <% if params[:search_query] && current_user %>
       <%# <% search_id = Ingredient.find_by(name:params[:search_query]).id %>
-      <%# <% search_id = Ingredient.find_by(name: params[:search_query].capitalize).id %>
-    <% search_id = "" %>
+      <% search_id = Ingredient.find_by(name: params[:search_query].capitalize).id %>
       <%# user writes in ingredient in search bar %>
 
 
@@ -24,39 +23,40 @@
         <% Cabinet.create!(ingredient_id: search_id, user: current_user) %>
       <% end %>
 
+
+
+
+
+
+      <%# <p>You searched for: <%= Ingredient.find_by(id:search_id).name %>
+      <%# <% search_id = Ingredient.find_by(name: params[:search_query].capitalize).id %>
+
+      <%# <%= Ingredient.find(search_id).cocktails.count %>
+      <%# params[:search_query].capitalize.cocktails%>
+
+      <% found_cocktails_id = [] %>
+      <% array = Measurement.where(ingredient_id: search_id) %>
+      <% array.empty? %>
+      <% array.each do |item| %>
+        <%# returns array of instances of measurement %>
+        <% found_id = item.cocktail_id %>
+        <% found_cocktail_ids << found_id %>
+      <% end %>
+      <%= found_cocktail_ids %>
+
+      <%# <p>these are all the cocktails with <%= @ingredients.find_by(id:search_id).name %>
+
+      <% all_found_cocktails = [] %>
+      <ul><% found_cocktail_ids.each do |id| %>
+        <% cocktail = Cocktail.find_by(id:id) %>
+        <li><%= cocktail.name %></li>
+        <% all_found_cocktails << cocktail %>
+      <% end %></ul>
+
+
+
+      <br><br><br>
     <% end %>
-
-
-
-
-
-    <%# <p>You searched for: <%= Ingredient.find_by(id:search_id).name %>
-    <%# <% search_id = Ingredient.find_by(name: params[:search_query].capitalize).id %>
-
-    <%# <%= Ingredient.find(search_id).cocktails.count %>
-    <%# params[:search_query].capitalize.cocktails%>
-
-    <% found_cocktails_id = [] %>
-    <% array = Measurement.where(ingredient_id: search_id) %>
-    <% array.each do |item| %>
-      <%# returns array of instances of measurement %>
-      <% found_cocktail_id = item.cocktail_id %>
-      <% found_cocktails_id << found_cocktail_id %>
-    <% end %>
-    <% found_cocktails_id %>
-
-    <%# <p>these are all the cocktails with <%= @ingredients.find_by(id:search_id).name %>
-
-    <% all_found_cocktails = [] %>
-    <ul><% found_cocktails_id.each do |id| %>
-      <% cocktail = Cocktail.find_by(id:id) %>
-      <li><%= cocktail.name %></li>
-      <% all_found_cocktails << cocktail %>
-    <% end %></ul>
-
-
-
-    <br><br><br>
 
   </div>
 
