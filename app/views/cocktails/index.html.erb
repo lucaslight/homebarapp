@@ -1,9 +1,6 @@
 <div class="main-content container">
 
-  <div class="container card-container">
-
-    <%= render "components/cabinet", user_ingredients: @user_ingredients_in_stock %>
-
+  <%= render "components/cabinet", user_ingredients: @user_ingredients_in_stock %>
 
   <div class="search container">
     <% if params[:search_query] && current_user %>
@@ -33,24 +30,67 @@
 
     <% end %>
 
-      <h1>All the cocktails you can do</h1>
+    <h1>All the cocktails you can do</h1>
 
-      <div class="container index">
-        <% if all_found_cocktails %>
+    <div class="index">
+      <% if all_found_cocktails %>
+        <div class="cards">
           <% all_found_cocktails.each do |cocktail| %>
 
-            <div class="index-card-wrap">
+            <div class="index-card-wrap" id="myBtn-<%= cocktail.id %>">
+              <div class="index-card-header">
+                <div class="index-card-stock"><p>Ready To Go</p></div>
+                <div class="index-cocktail-name"><h4><%= cocktail.name.titleize %></h4></div>
+              </div>
 
-              <h2> <%= link_to cocktail.name.titleize, cocktail_path(cocktail.id) %></h2>
-              <% cocktail.measurements.each do |measurement| %>
-                <p><%= all_ingredient_names_of_found_cocktails = @ingredients.find(measurement.ingredient_id).name %></p>
-              <% end %>
+              <% all_ingredient_names_of_found_cocktails = [] %>
+              <div class="index-card-bottom">
+                <%# <h2> <%= link_to cocktail.name.titleize, cocktail_path(cocktail.id) %>
+                <% cocktail.measurements.each do |measurement| %>
+                  <% all_ingredient_names_of_found_cocktails << @ingredients.find(measurement.ingredient_id).name.titleize %>
+                <% end %>
+                <p><%= all_ingredient_names_of_found_cocktails.to_sentence %></p>
+              </div>
+
             </div>
+
+            <%# Modal, non-displayed, which is the Show Card %>
+
+            <div class="modal" id="myModal-<%=cocktail.id %>">
+              <div class="show-card-wrap modal-content">
+                  <div class="show-cocktail-name"><h4></h4></div>
+                <div class="show-card-header">
+                  <div class="show-card-ingredients">
+                    <ul>
+                      <p class="text-head"><strong>Ingredients</strong></p>
+                      <% cocktail.measurements.each do |measurement| %>
+                      <li><%= measurement.quantity %> <%= measurement.unit %> of <%= @ingredients.find(measurement.ingredient_id).name %></li>
+                      <% end %>
+                    </ul>
+                  </div>
+                  <div class="show-card-photo" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://dosmaderas.com/wp-content/uploads/2021/10/Dos-Maderas-rum-Cocktail-Espresso-Martini-HERO-6.jpg)">
+                  </div>
+                </div>
+              <div class="show-card-bottom">
+                <div class="show-card-method">
+                  <p><strong>Method: </strong><%= cocktail.instructions %></p>
+                </div>
+                <div class="show-card-footer">
+                    <% if cocktail.alcoholic == true %>
+                    <p><i>Contains alcohol</i></p>
+                    <% elsif %>
+                    <br>
+                    <p><i>Does not contain alcohol</i></p>
+                    <% end %>
+                </div>
+              </div>
+            </div>
+            </div>
+
           <% end %>
-        <% end %>
-      </div>
-
+        </div>
+      <% end %>
     </div>
-  </div>
 
+  </div>
 </div>
