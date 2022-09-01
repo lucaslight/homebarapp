@@ -374,4 +374,18 @@ Cabinet.create!(
   ]
 )
 
+SavedCocktail.create!(
+  [
+    {
+      user: User.last,
+      cocktail: Cocktail.find_by(name: 'black russian')
+    },
+
+    {
+      user: User.last,
+      cocktail: Cocktail.find_by(name: 'negroni')
+    }
+  ]
+)
+
 puts "Enjoy coding! :)"
