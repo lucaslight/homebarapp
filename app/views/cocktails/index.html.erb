@@ -1,7 +1,9 @@
+<div class="main-content container">
 
-<div class="container card-container">
+  <div class="container card-container">
 
-  <%= render "components/cabinet", user_ingredients: @user_ingredients_in_stock %>
+    <%= render "components/cabinet", user_ingredients: @user_ingredients_in_stock %>
+
 
   <div class="search container">
     <% if params[:search_query] && current_user %>
@@ -31,29 +33,24 @@
 
     <% end %>
 
-
-    <br><br><br>
-
-    <div class="index container card-body">
       <h1>All the cocktails you can do</h1>
-
-
-      <div>
+    
+      <div class="container index">
         <% all_found_cocktails.each do |cocktail| %>
-
+        
           <div class="index-card-wrap">
+            
             <h2> <%= link_to cocktail.name.titleize, cocktail_path(cocktail.id) %></h2>
             <% cocktail.measurements.each do |measurement| %>
               <p><%= all_ingredient_names_of_found_cocktails = @ingredients.find(measurement.ingredient_id).name %></p>
             <% end %>
-            <br>
+            
           </div>
-
+       
         <% end %>
       </div>
 
     </div>
   </div>
-
 
 </div>

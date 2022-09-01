@@ -11,3 +11,17 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+.page-container {
+  display: grid;
+  // creates a grid layout
+  min-height: 100vh;
+  // min-height is set to vh so if content is smaller footer sticks to bottom
+  grid-template-rows: auto 1fr auto;
+  // 3 divs added to page-container, navbar and footer set to auto = takes what is needed. Content div is in between and takes 1fr (aka everything else).
+}
+.main-content {
+  // to be added in all views (+ .container)
+  margin-top: 96px;
+  // set so content stays below navbar w/1rem marging
+}
