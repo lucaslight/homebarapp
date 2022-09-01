@@ -13,6 +13,10 @@ puts "... cocktails"
 Cocktail.destroy_all
 puts "... users"
 User.destroy_all
+puts "... cabinets"
+Cabinet.destroy_all
+puts "... ingredients"
+Ingredient.destroy_all
 puts "Database is clean."
 
 puts 'Creating users...'
