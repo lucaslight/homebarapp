@@ -1,6 +1,31 @@
 .alert {
+  padding: 8px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+  border-radius: 4px;
+  margin: 8px;
   position: fixed;
-  bottom: 16px;
-  right: 16px;
-  z-index: 1000;
+  bottom: 0;
+  & p{
+    margin-bottom: 0;
+    margin-right: 1rem;
+  }
+  & .btn-close{
+    padding: 1.5rem 1rem 0 0 ;
+  }
+}
+
+.alert-info {
+  border: 2px solid $black-hb;
+}
+
+.alert-warning {
+  border: 2px solid $orange-hb;
+}
+
+.alert-danger {
+  border: 2px solid $red-hb;
 }
