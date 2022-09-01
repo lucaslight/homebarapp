@@ -1,11 +1,13 @@
 .banner {
   background-size: cover;
   background-position: center;
-  height: 100vh;
+  height: 80vh;
   display:flex;
   padding: 48px;
   align-items: flex-end;
   justify-content: start;
+  z-index: 0;
+  // flex-direction: column;
 }
 
 .banner-box {

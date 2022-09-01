@@ -56,27 +56,27 @@ puts 'Initializing ingredients creation'
 
 ingredients = Ingredient.create(
   [
-    { name: 'Sugar Syrup' }, #0
-    { name: 'Vodka' }, #1
-    { name: 'Coffee Liquor' }, #2
-    { name: 'Espresso' }, #3
-    { name: 'Cream' }, #4
-    { name: 'Lemon' }, #5
-    { name: 'Gin' }, #6
-    { name: 'Dry Vermouth' }, #7
-    { name: 'Sweet Red Vermouth' }, #8
-    { name: 'Bitter Campari' }, #9
-    { name: 'Scotch Whisky' }, #10
-    { name: 'Orange' }, #11
-    { name: 'Lime' }, #12
-    { name: 'Ginger Beer' }, #13
-    { name: 'Tonic Water' }, #14
-    { name: 'Orange Juice' }, #15
-    { name: 'Green Olives' }, #16
-    { name: 'Bourbon Whiskey' }, #17
-    { name: 'Lemon Juice' }, #18
-    { name: 'Egg white / Aquafaba' }, #19
-    { name: 'Lime Juice' } #20
+    { name: 'sugar syrup' }, #0
+    { name: 'vodka' }, #1
+    { name: 'coffee liquor' }, #2
+    { name: 'espresso' }, #3
+    { name: 'cream' }, #4
+    { name: 'lemon' }, #5
+    { name: 'gin' }, #6
+    { name: 'dry vermouth' }, #7
+    { name: 'sweet red vermouth' }, #8
+    { name: 'bitter campari' }, #9
+    { name: 'scotch whisky' }, #10
+    { name: 'orange' }, #11
+    { name: 'lime' }, #12
+    { name: 'ginger beer' }, #13
+    { name: 'tonic water' }, #14
+    { name: 'orange juice' }, #15
+    { name: 'green olives' }, #16
+    { name: 'bourbon whiskey' }, #17
+    { name: 'lemon juice' }, #18
+    { name: 'egg white / aquafaba' }, #19
+    { name: 'lime juice' } #20
   ]
 )
 
@@ -87,52 +87,52 @@ puts 'Initializing cocktails creation'
 cocktails = Cocktail.create(
   [
     { #0
-      name: 'Espresso Martini',
+      name: 'espresso martini',
       instructions: 'Pour all ingredients into cocktail shaker, shake well with ice, strain into chilled cocktail glass.',
       alcoholic: true
     },
     { #1
-      name: 'Black Russian',
+      name: 'black russian',
       instructions: 'Pour the ingredients into the old fashioned glass filled with ice cubes. Stir gently.',
       alcoholic: true
     },
     { #2
-      name: 'White Russian',
+      name: 'white russian',
       instructions: 'Pour the ingredients into the old fashioned glass filled with ice cubes. Float fresh cream on the top and stir in slowly.',
       alcoholic: true
     },
     { #3
-      name: 'Gin Tonic',
+      name: 'gin tonic',
       instructions: 'Fill a glass with ice cubes then pour gin and top off with tonic water. Garnish with lemon zest',
       alcoholic: true
     },
     { #4
-      name: 'Negroni',
+      name: 'negroni',
       instructions: 'Pour all ingredients directly into a chilled old fashioned glass filled with ice, Stir gently. Garnish with a half orange slice.',
       alcoholic: true
     },
     { #5
-      name: 'Screw Driver',
+      name: 'screw driver',
       instructions: 'Build all ingredients in a highball glass filled with ice.',
       alcoholic: true
     },
     { #6
-      name: 'Moscow Mule',
+      name: 'moscow mule',
       instructions: 'In a Mule Cup or rocks glass, combine the vodka and ginger beer. Add lime juice and gently stir to involve all ingredients. Garnish with lime slice.',
       alcoholic: true
     },
     { #7
-      name: 'Boulevardier',
+      name: 'boulevardier',
       instructions: 'Pour all ingredients directly into a chilled old fashioned glass filled with ice, Stir gently. Garnish with a half orange slice.',
       alcoholic: true
     },
     { #8
-      name: 'Dry Martini',
+      name: 'dry martini',
       instructions: 'Pour all ingredients into mixing glass with ice cubes. Stir well. Strain into chilled martini cocktail glass. Squeeze oil from lemon peel onto the drink, or garnish with green olives if requested',
       alcoholic: true
     },
     { #9
-      name: 'Whisky Sour',
+      name: 'whisky sour',
       instructions: 'Pour all ingredients into a cocktail shaker filled with ice. Shake well. Strain into cobbler glass. If served "On the rocks", strain ingredients into an old fashioned glass filled with ice.
       If egg white is used shake little harder to release and incorporate the foam from the egg white. Garnish with a half orange slice and maraschino cherry, optionally use orange zest.',
       alcoholic: true
@@ -144,209 +144,234 @@ puts "Finished creating #{Cocktail.count} cocktails"
 
 puts 'Initializing measurements creation'
 
-Measurement.create(
+# downcase cocktails and ingredients
+# re-hardcode the measurements
+
+Measurement.create!(
   [
     {
-      quantity: '10',
+      quantity: 10,
       unit: 'ml',
-      cocktail_id: cocktails[0].id,
-      ingredient_id: ingredients[0].id
+      cocktail: Cocktail.find_by(name: 'espresso martini'),
+      ingredient: Ingredient.find_by(name: 'sugar syrup')
     },
     {
-      quantity: '50',
+      quantity: 50,
       unit: 'ml',
-      cocktail_id: cocktails[0].id,
-      ingredient_id: ingredients[1].id
+      cocktail: Cocktail.find_by(name: 'espresso martini'),
+      ingredient: Ingredient.find_by(name: 'vodka')
     },
     {
-      quantity: '30',
+      quantity: 30,
       unit: 'ml',
-      cocktail_id: cocktails[0].id,
-      ingredient_id: ingredients[2].id
+      cocktail: Cocktail.find_by(name: 'espresso martini'),
+      ingredient: Ingredient.find_by(name: 'coffee liquor')
     },
     {
-      quantity: '50',
+      quantity: 50,
       unit: 'ml',
-      cocktail_id: cocktails[0].id,
-      ingredient_id: ingredients[3].id
+      cocktail: Cocktail.find_by(name: 'espresso martini'),
+      ingredient: Ingredient.find_by(name: 'espresso')
     },
     {
-      quantity: '50',
+      quantity: 50,
       unit: 'ml',
-      cocktail_id: cocktails[1].id,
-      ingredient_id: ingredients[1].id
+      cocktail: Cocktail.find_by(name: 'black russian'),
+      ingredient: Ingredient.find_by(name: 'vodka')
     },
     {
-      quantity: '20',
+      quantity: 20,
       unit: 'ml',
-      cocktail_id: cocktails[1].id,
-      ingredient_id: ingredients[2].id
+      cocktail: Cocktail.find_by(name: 'black russian'),
+      ingredient: Ingredient.find_by(name: 'coffee liquor')
     },
     {
-      quantity: '50',
+      quantity: 50,
       unit: 'ml',
-      cocktail_id: cocktails[2].id,
-      ingredient_id: ingredients[1].id
+      cocktail: Cocktail.find_by(name: 'white russian'),
+      ingredient: Ingredient.find_by(name: 'vodka')
     },
     {
-      quantity: '20',
+      quantity: 20,
       unit: 'ml',
-      cocktail_id: cocktails[2].id,
-      ingredient_id: ingredients[2].id
+      cocktail: Cocktail.find_by(name: 'white russian'),
+      ingredient: Ingredient.find_by(name: 'coffee liquor')
     },
     {
-      quantity: '20',
+      quantity: 20,
       unit: 'ml',
-      cocktail_id: cocktails[2].id,
-      ingredient_id: ingredients[4].id
+      cocktail: Cocktail.find_by(name: 'white russian'),
+      ingredient: Ingredient.find_by(name: 'cream')
     },
     {
-      quantity: '1',
+      quantity: 1,
       unit: 'zest',
-      cocktail_id: cocktails[3].id,
-      ingredient_id: ingredients[5].id
+      cocktail: Cocktail.find_by(name: 'gin tonic'),
+      ingredient: Ingredient.find_by(name: 'lemon')
     },
     {
-      quantity: '50',
+      quantity: 50,
       unit: 'ml',
-      cocktail_id: cocktails[3].id,
-      ingredient_id: ingredients[6].id
+      cocktail: Cocktail.find_by(name: 'gin tonic'),
+      ingredient: Ingredient.find_by(name: 'gin')
     },
     {
-      quantity: '120',
+      quantity: 120,
       unit: 'ml',
-      cocktail_id: cocktails[3].id,
-      ingredient_id: ingredients[14].id
+      cocktail: Cocktail.find_by(name: 'gin tonic'),
+      ingredient: Ingredient.find_by(name: 'tonic water')
     },
     {
-      quantity: '30',
+      quantity: 30,
       unit: 'ml',
-      cocktail_id: cocktails[4].id,
-      ingredient_id: ingredients[6].id
+      cocktail: Cocktail.find_by(name: 'negroni'),
+      ingredient: Ingredient.find_by(name: 'gin')
     },
     {
-      quantity: '30',
+      quantity: 30,
       unit: 'ml',
-      cocktail_id: cocktails[4].id,
-      ingredient_id: ingredients[9].id
+      cocktail: Cocktail.find_by(name: 'negroni'),
+      ingredient: Ingredient.find_by(name: 'bitter campari')
     },
     {
-      quantity: '30',
+      quantity: 30,
       unit: 'ml',
-      cocktail_id: cocktails[4].id,
-      ingredient_id: ingredients[8].id
+      cocktail: Cocktail.find_by(name: 'negroni'),
+      ingredient: Ingredient.find_by(name: 'sweet red vermouth')
     },
     {
-      quantity: '30',
-      unit: 'ml',
-      cocktail_id: cocktails[7].id,
-      ingredient_id: ingredients[17].id
-    },
-    {
-      quantity: '30',
-      unit: 'ml',
-      cocktail_id: cocktails[7].id,
-      ingredient_id: ingredients[9].id
-    },
-    {
-      quantity: '30',
-      unit: 'ml',
-      cocktail_id: cocktails[7].id,
-      ingredient_id: ingredients[8].id
-    },
-    {
-      quantity: '1/2',
+      quantity: 1,
       unit: 'slice',
-      cocktail_id: cocktails[7].id,
-      ingredient_id: ingredients[11].id
+      cocktail: Cocktail.find_by(name: 'screw driver'),
+      ingredient: Ingredient.find_by(name: 'orange')
     },
     {
-      quantity: '1/2',
+      quantity: 50,
+      unit: 'ml',
+      cocktail: Cocktail.find_by(name: 'screw driver'),
+      ingredient: Ingredient.find_by(name: 'vodka')
+    },
+    {
+      quantity: 120,
+      unit: 'ml',
+      cocktail: Cocktail.find_by(name: 'screw driver'),
+      ingredient: Ingredient.find_by(name: 'orange juice')
+    },
+    {
+      quantity: 45,
+      unit: 'ml',
+      cocktail: Cocktail.find_by(name: 'moscow mule'),
+      ingredient: Ingredient.find_by(name: 'vodka')
+    },
+    {
+      quantity: 120,
+      unit: 'ml',
+      cocktail: Cocktail.find_by(name: 'moscow mule'),
+      ingredient: Ingredient.find_by(name: 'ginger beer')
+    },
+    {
+      quantity: 10,
+      unit: 'ml',
+      cocktail: Cocktail.find_by(name: 'moscow mule'),
+      ingredient: Ingredient.find_by(name: 'lime juice')
+    },
+    {
+      quantity: 1,
       unit: 'slice',
-      cocktail_id: cocktails[5].id,
-      ingredient_id: ingredients[11].id
+      cocktail: Cocktail.find_by(name: 'moscow mule'),
+      ingredient: Ingredient.find_by(name: 'lime')
     },
     {
-      quantity: '50',
+      quantity: 30,
       unit: 'ml',
-      cocktail_id: cocktails[5].id,
-      ingredient_id: ingredients[1].id
+      cocktail: Cocktail.find_by(name: 'boulevardier'),
+      ingredient: Ingredient.find_by(name: 'bourbon whiskey')
     },
     {
-      quantity: '120',
+      quantity: 30,
       unit: 'ml',
-      cocktail_id: cocktails[5].id,
-      ingredient_id: ingredients[15].id
+      cocktail: Cocktail.find_by(name: 'boulevardier'),
+      ingredient: Ingredient.find_by(name: 'bitter campari')
     },
     {
-      quantity: '45',
+      quantity: 30,
       unit: 'ml',
-      cocktail_id: cocktails[6].id,
-      ingredient_id: ingredients[1].id
+      cocktail: Cocktail.find_by(name: 'boulevardier'),
+      ingredient: Ingredient.find_by(name: 'sweet red vermouth')
     },
     {
-      quantity: '120',
-      unit: 'ml',
-      cocktail_id: cocktails[6].id,
-      ingredient_id: ingredients[13].id
-    },
-    {
-      quantity: '10',
-      unit: 'ml',
-      cocktail_id: cocktails[6].id,
-      ingredient_id: ingredients[20].id
-    },
-    {
-      quantity: '1',
+      quantity: 1,
       unit: 'slice',
-      cocktail_id: cocktails[6].id,
-      ingredient_id: ingredients[12].id
+      cocktail: Cocktail.find_by(name: 'boulevardier'),
+      ingredient: Ingredient.find_by(name: 'orange')
     },
     {
-      quantity: '60',
+      quantity: 60,
       unit: 'ml',
-      cocktail_id: cocktails[8].id,
-      ingredient_id: ingredients[6].id
+      cocktail: Cocktail.find_by(name: 'dry martini'),
+      ingredient: Ingredient.find_by(name: 'gin')
     },
     {
-      quantity: '10',
+      quantity: 10,
       unit: 'ml',
-      cocktail_id: cocktails[8].id,
-      ingredient_id: ingredients[7].id
+      cocktail: Cocktail.find_by(name: 'dry martini'),
+      ingredient: Ingredient.find_by(name: 'dry vermouth')
     },
     {
-      quantity: '2',
+      quantity: 2,
       unit: 'units',
-      cocktail_id: cocktails[8].id,
-      ingredient_id: ingredients[16].id
+      cocktail: Cocktail.find_by(name: 'dry martini'),
+      ingredient: Ingredient.find_by(name: 'green olives')
     },
     {
-      quantity: '45',
+      quantity: 45,
       unit: 'ml',
-      cocktail_id: cocktails[9].id,
-      ingredient_id: ingredients[17].id
+      cocktail: Cocktail.find_by(name: 'whisky sour'),
+      ingredient: Ingredient.find_by(name: 'bourbon whiskey')
     },
     {
-      quantity: '25',
+      quantity: 25,
       unit: 'ml',
-      cocktail_id: cocktails[9].id,
-      ingredient_id: ingredients[18].id
+      cocktail: Cocktail.find_by(name: 'whisky sour'),
+      ingredient: Ingredient.find_by(name: 'lemon juice')
     },
     {
-      quantity: '20',
+      quantity: 20,
       unit: 'ml',
-      cocktail_id: cocktails[9].id,
-      ingredient_id: ingredients[1].id
+      cocktail: Cocktail.find_by(name: 'whisky sour'),
+      ingredient: Ingredient.find_by(name: 'vodka')
     },
     {
-      quantity: '20',
+      quantity: 20,
       unit: 'ml',
-      cocktail_id: cocktails[9].id,
-      ingredient_id: ingredients[19].id
+      cocktail: Cocktail.find_by(name: 'whisky sour'),
+      ingredient: Ingredient.find_by(name: 'egg white / aquafaba')
     }
   ]
 )
 
 puts "Finished creating #{Measurement.count} measurements"
+
+Cabinet.create!(
+  [
+    {
+      user_id: User.last.id,
+      ingredient_id: ingredients[6].id,
+      in_stock: true
+    },
+
+    {
+      user_id: User.last.id,
+      ingredient_id: ingredients[1].id,
+      in_stock: true
+    },
+
+    {
+      user_id: User.last.id,
+      ingredient_id: ingredients[3].id,
+      in_stock: false
+    }
+  ]
+)
 
 puts "Enjoy coding! :)"
