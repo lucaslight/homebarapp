@@ -34,19 +34,19 @@
     <% end %>
 
       <h1>All the cocktails you can do</h1>
-    
+
       <div class="container index">
-        <% all_found_cocktails.each do |cocktail| %>
-        
-          <div class="index-card-wrap">
-            
-            <h2> <%= link_to cocktail.name.titleize, cocktail_path(cocktail.id) %></h2>
-            <% cocktail.measurements.each do |measurement| %>
-              <p><%= all_ingredient_names_of_found_cocktails = @ingredients.find(measurement.ingredient_id).name %></p>
-            <% end %>
-            
-          </div>
-       
+        <% if all_found_cocktails %>
+          <% all_found_cocktails.each do |cocktail| %>
+
+            <div class="index-card-wrap">
+
+              <h2> <%= link_to cocktail.name.titleize, cocktail_path(cocktail.id) %></h2>
+              <% cocktail.measurements.each do |measurement| %>
+                <p><%= all_ingredient_names_of_found_cocktails = @ingredients.find(measurement.ingredient_id).name %></p>
+              <% end %>
+            </div>
+          <% end %>
         <% end %>
       </div>
 
