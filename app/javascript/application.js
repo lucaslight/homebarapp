@@ -30,7 +30,6 @@ document.addEventListener("turbo:load", () => {
         myModal.style.display = "none";
       }
     }
-
     button.addEventListener('click', (event) => {
       myModal.id = button.id
       console.log(button.getElementsByClassName("index-card-ingredients"));
