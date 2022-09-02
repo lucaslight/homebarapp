@@ -3,6 +3,8 @@ class SavedCocktailsController < ApplicationController
   end
 
   def index
+    # @saved_cocktails = []
+    # @saved_cocktails << Cocktail.find_by(name:"negroni")
     @saved_cocktails = SavedCocktail.all
 
     @user_ingredients_in_stock = Cabinet.where(user: current_user, in_stock: true).to_a
