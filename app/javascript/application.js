@@ -3,16 +3,33 @@ import "@hotwired/turbo-rails"
 import "./controllers"
 import "bootstrap"
 console.log("Hello from app/javascript/application.js")
+
 // Get the modal
 
 let buttons = document.querySelectorAll(".index-card-wrap");
 let myModal = document.querySelector(".modal");
-
 let modalName = document.querySelector(".show-cocktail-name");
 // let modalIngredients = document.querySelector(".show-card-ingredients");
 // let modalMethod = document.querySelector(".show-card-method");
 
 buttons.forEach((button) => {
+  // When the user clicks on <span> (x), close the modal
+  button.onclick = function() {
+    myModal.style.display = "none";
+  }
+
+  // When the user clicks on the button, open the modal
+  button.onclick = function() {
+    myModal.style.display = "block";
+  }
+
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+    if (event.target == myModal) {
+      myModal.style.display = "none";
+    }
+  }
+
   button.addEventListener('click', (event) => {
     myModal.id = button.id
     console.log(button.getElementsByClassName("index-card-ingredients"));
@@ -26,21 +43,5 @@ buttons.forEach((button) => {
     console.log(button.id);
     // Get the <span> element that closes the modal
     var span = document.getElementsByClassName("close")[0];
-
-    // When the user clicks on <span> (x), close the modal
-    button.onclick = function() {
-      myModal.style.display = "none";
-    }
-    // When the user clicks on the button, open the modal
-    button.onclick = function() {
-      myModal.style.display = "block";
-    }
-
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
-      if (event.target == myModal) {
-        myModal.style.display = "none";
-      }
-    }
   })
 })
