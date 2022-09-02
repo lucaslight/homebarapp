@@ -1,45 +1,15 @@
 <div class="main-content container">
 
-  <%= render "components/cabinet", user_ingredients: @user_ingredients_in_stock %>
+<%= render "components/cabinet", user_ingredients: @user_ingredients_in_stock, found_cocktails: @all_found_cocktails %>
 
   <div class="search container">
-    <% if params[:search_query] && current_user %>
 
-      <% search_ingr = Ingredient.find_by(name: params[:search_query]) %>
-
-      <% idk = Cabinet.find_by(ingredient: search_ingr, user: current_user) %>
-      <% if idk && idk.in_stock == false %>
-
-        <% idk.in_stock = true %>
-      <% elsif idk == nil %>
-        <% Cabinet.create!(ingredient: search_ingr, user: current_user) %>
-      <% end %>
-
-
-      <% found_cocktails_id = [] %>
-      <% array = Measurement.where(ingredient: search_ingr) %>
-      <% array.each do |item| %>
-        <% found_cocktail_id = item.cocktail_id %>
-        <% found_cocktails_id << found_cocktail_id %>
-      <% end %>
-      <% found_cocktails_id %>
-
-
-      <% all_found_cocktails = [] %>
-      <% found_cocktails_id.each do |id| %>
-        <% cocktail = Cocktail.find_by(id:id) %>
-        <% all_found_cocktails << cocktail %>
-      <% end %>
-
-    <% end %>
-
-
-    <h1>All the cocktails you can do</h1>
+    <h1>Make these cocktails</h1>
 
     <div class="index">
-      <% if all_found_cocktails %>
+      <% if @all_found_cocktails %>
         <div class="cards">
-          <% all_found_cocktails.each do |cocktail| %>
+          <% @all_found_cocktails.each do |cocktail| %>
 
             <div class="index-card-wrap" id="myBtn-<%= cocktail.id %>">
               <div class="index-card-header">
