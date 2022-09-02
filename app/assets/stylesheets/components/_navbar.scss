@@ -1,26 +1,22 @@
+.navbar-hba {
+  justify-content: space-between;
+  background: white;
+  border-bottom: 1px solid $black-hb;
+}
 .navbar {
   position: fixed;
   top: 0;
   z-index: 10;
   width: 100vw;
-  height: fit-content;
   justify-content: space-between;
-  padding: 0;
-}
-.navbar-white {
-  background: white;
-  transition: 0.5s background-color ease;
-}
-.navbar-transparent {
-  // border-bottom: 1px solid $black-hb;
-  background-color: transparent;
 }
 
-.navbar .navbar-collapse {
+.navbar-hba .navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar .navbar-brand img {
+
+.navbar-hba .navbar-brand img {
   width: 40px;
 }
 
@@ -38,5 +34,4 @@ h1 {
   font-family: $headers-font;
   color: $black-hb;
   opacity: 1;
-  margin-bottom: 0;
 }
