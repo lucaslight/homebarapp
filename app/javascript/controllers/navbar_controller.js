@@ -26,9 +26,4 @@ export default class extends Controller {
     }
   }
 
-  refreshPage() {
-    if () {
-      window.location.href=window.location.href
-    }
-  }
 }
