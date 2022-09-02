@@ -6,7 +6,7 @@ class SavedCocktailsController < ApplicationController
     @saved_cocktails = SavedCocktail.where(user: current_user)
 
     @user_ingredients_in_stock = Cabinet.where(user: current_user, in_stock: true).to_a
-  
+
     @user_ingredients = []
     @user_ingredients_in_stock.each do |user_ingredient|
       @user_ingredients << user_ingredient.ingredient
