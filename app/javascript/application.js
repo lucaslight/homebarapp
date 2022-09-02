@@ -3,8 +3,8 @@ import "@hotwired/turbo-rails"
 import "./controllers"
 import "bootstrap"
 console.log("Hello from app/javascript/application.js")
-// Get the modal
 
+// Get the modal
 
 document.addEventListener("turbo:load", () => {
   let buttons = document.querySelectorAll(".index-card-wrap");
