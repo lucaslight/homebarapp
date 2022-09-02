@@ -1,4 +1,47 @@
 <div class="main-content container">
-<h1>SavedCocktails#index</h1>
-<p>Find me in app/views/saved_cocktails/index.html.erb</p>
+  <h1>Selected Cocktails</h1>
+   <%= render "components/cabinet", user_ingredients: @user_ingredients_in_stock %>
+
+   <div class="lists d-flex justify-content-between">
+
+    <div class="grocery-list">
+      <div class="card">
+        <h3>My grocery list</h3>
+        <ul >
+          <% @grocery_list.each do |item| %>
+            <li><%= item.name.capitalize %></li>
+          <% end %>
+        </ul>
+      </div>
+
+      <div class="card grayscale">
+        <h4>My cabinet</h4>
+        <ul>
+          <% @user_ingredients.each do |item| %>
+            <li><%= item.name.capitalize %></li>
+          <% end %>
+        </ul>
+      </div>
+
+      <div class="card grayscale">
+        <h4>My selected cocktails ingredients</h4>
+        <ul>
+          <% @saved_ingredients.each do |item| %>
+            <li><%= item.name.capitalize %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+
+    <div class="cocktails-list">
+      <h3>My selected cocktails</h3>
+      <ul>
+        <% @saved_cocktails.each do |saved_cocktail| %>
+          <li><%= saved_cocktail.cocktail.name.capitalize %></li>
+        <% end %>
+      </ul>
+    </div>
+   </div>
+
+
 </div>

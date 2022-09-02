@@ -13,6 +13,10 @@ puts "... cocktails"
 Cocktail.destroy_all
 puts "... users"
 User.destroy_all
+puts "... cabinets"
+Cabinet.destroy_all
+puts "... ingredients"
+Ingredient.destroy_all
 puts "Database is clean."
 
 puts 'Creating users...'
@@ -370,6 +374,20 @@ Cabinet.create!(
       user_id: User.last.id,
       ingredient_id: ingredients[3].id,
       in_stock: false
+    }
+  ]
+)
+
+SavedCocktail.create!(
+  [
+    {
+      user: User.last,
+      cocktail: Cocktail.find_by(name: 'black russian')
+    },
+
+    {
+      user: User.last,
+      cocktail: Cocktail.find_by(name: 'negroni')
     }
   ]
 )
