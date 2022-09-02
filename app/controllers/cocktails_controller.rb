@@ -9,8 +9,6 @@ class CocktailsController < ApplicationController
     @cocktails = Cocktail.all
     @ingredients = Ingredient.all
 
-    @user_ingredients_in_stock = Cabinet.where(user: current_user, in_stock: true).to_a
-
     # <p>TOP OF THE PAGE <%= @all_found_cocktails </p>
 
     if params[:search_query] && current_user
@@ -42,5 +40,7 @@ class CocktailsController < ApplicationController
       cocktail = Cocktail.find_by(id:id)
       @all_found_cocktails << cocktail
     end
+
+    @user_ingredients_in_stock = Cabinet.where(user: current_user, in_stock: true).to_a
   end
 end
