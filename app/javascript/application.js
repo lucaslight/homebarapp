@@ -15,6 +15,21 @@ document.addEventListener("turbo:load", () => {
   // let modalMethod = document.querySelector(".show-card-method");
 
   buttons.forEach((button) => {
+    button.onclick = function() {
+      myModal.style.display = "none";
+    }
+    // When the user clicks on the button, open the modal
+    button.onclick = function() {
+      myModal.style.display = "block";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+      if (event.target == myModal) {
+        myModal.style.display = "none";
+      }
+    }
+    
     button.addEventListener('click', (event) => {
       myModal.id = button.id
       console.log(button.getElementsByClassName("index-card-ingredients"));
@@ -30,20 +45,6 @@ document.addEventListener("turbo:load", () => {
       var span = document.getElementsByClassName("close")[0];
 
       // When the user clicks on <span> (x), close the modal
-      button.onclick = function() {
-        myModal.style.display = "none";
-      }
-      // When the user clicks on the button, open the modal
-      button.onclick = function() {
-        myModal.style.display = "block";
-      }
-
-      // When the user clicks anywhere outside of the modal, close it
-      window.onclick = function(event) {
-        if (event.target == myModal) {
-          myModal.style.display = "none";
-        }
-      }
     })
   })
 })
