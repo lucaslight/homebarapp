@@ -6,8 +6,12 @@
     </div>
     <div class="search-results">
       <button name="button" type="submit" class="btn-flat">Add ingredient</button>
-      <h5><%= @user_ingredients_in_stock.length %> Ingredients</h5>
-      <h5>XX Cocktails</h5>
+      <h5><%= user_ingredients.length %> Ingredients</h5>
+      <%if @all_found_cocktails %>
+        <h5><%= @all_found_cocktails.to_a.length %> Cocktails Found</h5>
+      <% elsif %>
+        <h5><%= @saved_cocktails.to_a.length %> Selected Cocktails</h5>
+      <% end %>
     </div>
   </div>
 

@@ -7,7 +7,7 @@ class CabinetsController < ApplicationController
 
   def remove_from_stock
     @cabinet = Cabinet.find(params[:id])
-    @cabinet.in_stock = false
+    @cabinet.in_stock = !@cabinet.in_stock
     @cabinet.save!
     redirect_to cocktails_path
   end

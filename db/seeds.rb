@@ -17,6 +17,8 @@ puts "... cabinets"
 Cabinet.destroy_all
 puts "... ingredients"
 Ingredient.destroy_all
+puts "... saved cocktails"
+SavedCocktail.destroy_all
 puts "Database is clean."
 
 puts 'Creating users...'
@@ -356,8 +358,29 @@ Measurement.create!(
 
 puts "Finished creating #{Measurement.count} measurements"
 
+puts 'Initializing cabinets creation'
+
 Cabinet.create!(
   [
+    # For Lucas
+    {
+      user_id: User.first.id,
+      ingredient_id: ingredients[6].id,
+      in_stock: true
+    },
+
+    {
+      user_id: User.first.id,
+      ingredient_id: ingredients[1].id,
+      in_stock: true
+    },
+
+    {
+      user_id: User.first.id,
+      ingredient_id: ingredients[3].id,
+      in_stock: false
+    },
+    # For Alvaro
     {
       user_id: User.last.id,
       ingredient_id: ingredients[6].id,
@@ -378,18 +401,35 @@ Cabinet.create!(
   ]
 )
 
+puts "Finished creating #{Cabinet.count} cabinets"
+
+puts 'Initializing saved cocktails creation'
+
 SavedCocktail.create!(
   [
+    # For Lucas
     {
-      user: User.last,
+      user_id: User.first.id,
       cocktail: Cocktail.find_by(name: 'black russian')
     },
 
     {
-      user: User.last,
+      user_id: User.first.id,
+      cocktail: Cocktail.find_by(name: 'negroni')
+    },
+    # For Alvaro
+    {
+      user_id: User.last.id,
+      cocktail: Cocktail.find_by(name: 'black russian')
+    },
+
+    {
+      user_id: User.last.id,
       cocktail: Cocktail.find_by(name: 'negroni')
     }
   ]
 )
+
+puts "Finished creating #{SavedCocktail.count} saved cocktails"
 
 puts "Enjoy coding! :)"
