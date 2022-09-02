@@ -8,9 +8,9 @@
       <% search_ingr = Ingredient.find_by(name: params[:search_query]) %>
 
       <% idk = Cabinet.find_by(ingredient: search_ingr, user: current_user) %>
-      <% if idk && idk.in_stock == false %>
 
-        <% idk.in_stock = true %>
+      <% if idk && idk.in_stock == false %>
+        <% !idk.in_stock %>
       <% elsif idk == nil %>
         <% Cabinet.create!(ingredient: search_ingr, user: current_user) %>
       <% end %>
