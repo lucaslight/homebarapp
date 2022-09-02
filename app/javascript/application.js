@@ -15,6 +15,7 @@ document.addEventListener("turbo:load", () => {
   // let modalMethod = document.querySelector(".show-card-method");
 
   buttons.forEach((button) => {
+    // When the user clicks on <span> (x), close the modal
     button.onclick = function() {
       myModal.style.display = "none";
     }
@@ -29,7 +30,6 @@ document.addEventListener("turbo:load", () => {
         myModal.style.display = "none";
       }
     }
-    
     button.addEventListener('click', (event) => {
       myModal.id = button.id
       console.log(button.getElementsByClassName("index-card-ingredients"));
@@ -43,8 +43,6 @@ document.addEventListener("turbo:load", () => {
       console.log(button.id);
       // Get the <span> element that closes the modal
       var span = document.getElementsByClassName("close")[0];
-
-      // When the user clicks on <span> (x), close the modal
     })
   })
 })

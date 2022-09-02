@@ -9,6 +9,6 @@ class CabinetsController < ApplicationController
     @cabinet = Cabinet.find(params[:id])
     @cabinet.in_stock = !@cabinet.in_stock
     @cabinet.save!
-    redirect_to cocktails_path
+    redirect_back(fallback_location: root_path)
   end
 end
