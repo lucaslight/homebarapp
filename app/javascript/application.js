@@ -7,7 +7,7 @@ console.log("Hello from app/javascript/application.js")
 // Get the modal
 
 document.addEventListener("turbo:load", () => {
-  let buttons = document.querySelectorAll(".index-card-wrap");
+  let buttons = document.querySelectorAll(".index-cocktail-name");
   let myModal = document.querySelector(".modal");
 
   let modalName = document.querySelector(".show-cocktail-name");
