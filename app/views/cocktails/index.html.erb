@@ -6,8 +6,20 @@
     <% if @all_found_cocktails.empty? %>
       <h1>All Our Cocktails</h1>
       <div class="cards">
+      
         <% @cocktails.each do |cocktail| %>
-          <div class="index-card-wrap" id="myBtn-<%= cocktail.id %>">
+         <%# LOGIC for saved cocktails display %>
+              <% @saved_cocktails.each do |item| %>
+                <% if item.cocktail_id == cocktail.id %>
+                  <% @custom_class = "saved_cocktail_orange" %>
+                <% else %>
+                  <% @custom_class = "" %>
+                <% end %>
+              <% end %>
+
+
+
+          <div class="index-card-wrap <%= @custom_class %>" id="myBtn-<%= cocktail.id %>">
             <div class="index-card-header">
               <div class="index-card-stock"><p>Ready To Go</p></div>
               <div class="index-cocktail-name"><h4><%= cocktail.name.titleize %></h4></div>
