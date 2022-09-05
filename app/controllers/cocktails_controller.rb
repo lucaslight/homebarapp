@@ -14,7 +14,7 @@ class CocktailsController < ApplicationController
 
       #  CONVERT USER SEARCH INTO INGR INSTANCE
       # search_ingr = Ingredient.find_by(name: params[:search_query].downcase)
-      search_ingr = Ingredient.where('name LIKE ?', "%#{params[:search_query]}%")
+      search_ingr = Ingredient.where('name LIKE ?', "%#{params[:search_query]}%").first
 
       # CABINET LOGIC WITH USER SEARCH
       idk = Cabinet.find_by(ingredient: search_ingr, user: current_user)
@@ -33,6 +33,7 @@ class CocktailsController < ApplicationController
     array.each do |item|
       found_cocktail_id = item.cocktail_id
       found_cocktails_id << found_cocktail_id
+
     end
 
     @all_found_cocktails = []
