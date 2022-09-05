@@ -2,7 +2,7 @@
 
 .cabinet {
   background-color: $white;
-  border-radius: 4px;
+  border-radius: 4px 4px 0 0;
   border: 1px solid $black-hb;
 }
 
@@ -38,6 +38,7 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  height: 79px;
   gap: 1rem;
 }
 
