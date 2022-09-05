@@ -43,6 +43,7 @@ class CocktailsController < ApplicationController
     # raise
   end
 
+
   def create_ingredient_tags
     if params[:search_query].present? && current_user
       search_ingr = Ingredient.find_by(name: params[:search_query])
