@@ -32,6 +32,8 @@ class SavedCocktailsController < ApplicationController
     if current_user
       SavedCocktail.create(user: current_user, cocktail_id: new_user_cocktail.id)
     end
+
+
   end
 
   def new

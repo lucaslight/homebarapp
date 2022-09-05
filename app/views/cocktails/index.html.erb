@@ -63,6 +63,10 @@
       </div>
     <% else %>
       <h1>Make these cocktails</h1>
+                  <p>this is the nqme of the lqst cocktqil saved</p><%= @saved_cocktails.last.cocktail.name %>
+                  <p>this is the id of the last cocktail saved</p><%= @saved_cocktails.last.cocktail.id %>
+                  <p>does saved cocktails include the above cocktail </p><%= @saved_cocktails.include?(id: @saved_cocktails.last.cocktail.id) %>
+            
       <div class="index">
         <% if @all_found_cocktails %>
           <div class="cards">
@@ -81,6 +85,21 @@
                     <% all_ingredient_names_of_found_cocktails << @ingredients.find(measurement.ingredient_id).name.titleize %>
                   <% end %>
                   <p><%= all_ingredient_names_of_found_cocktails.to_sentence %></p>
+                  <%= button_to "", saved_from_index_path(cocktail.id), method: :post, class:"fa-solid fa-circle-plus fa-2xl saver" %>
+
+
+
+                  <%# LOGIC for saved cocktails display %>
+                  <% if !@saved_cocktails.include?(cocktail_id: cocktail.id) %>
+                    <%= raise %>
+                    <p>this cocktail is not saved</p>
+                  <% elsif %>
+                    <p>saved</p>
+                  <% end %>
+
+
+
+
                 </div>
 
               </div>
