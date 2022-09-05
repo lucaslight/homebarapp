@@ -1,17 +1,26 @@
 <% @ready.each do |cocktail| %>
-  <div class="index-card-wrap" id="myBtn-<%= cocktail.id %>">
+  <div class="index-card-wrap" id="myBtn-<%= cocktail %>">
     <div class="index-card-header">
-      <div class="index-card-stock"><p>Ready To Go</p></div>
-      <div class="index-cocktail-name"><h4><%= cocktail.name.titleize %></h4></div>
+      <div class="index-card-stock">
+        <p>
+          Ready To Go
+        </p>
+      </div>
+      <div class="index-cocktail-name">
+        <h4>
+          <%= Cocktail.find_by(id: cocktail).pluck(:name) %>
+        </h4>
+      </div>
     </div>
-
     <% all_ingredient_names_of_found_cocktails = [] %>
     <div class="index-card-bottom">
       <%# <h2> <%= link_to cocktail.name.titleize, cocktail_path(cocktail.id) %>
       <% cocktail.measurements.each do |measurement| %>
         <% all_ingredient_names_of_found_cocktails << @ingredients.find(measurement.ingredient_id).name.titleize %>
       <% end %>
-      <p><%= all_ingredient_names_of_found_cocktails.to_sentence %></p>
+      <p>
+        <%= all_ingredient_names_of_found_cocktails.to_sentence %>
+      </p>
     </div>
   </div>
 <% end %>
