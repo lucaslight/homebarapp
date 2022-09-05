@@ -19,20 +19,7 @@ document.addEventListener("turbo:load", () => {
       myModal.id = button.id
       console.log(button.getElementsByClassName("index-card-ingredients"));
       modalName.innerHTML = button.getElementsByClassName("index-cocktail-name")[0].innerHTML
-      // modalIngredients.innerHTML = button.getElementsByClassName("index-card-ingredients")[0].innerHTML
-      // modalMethod.innerHTML = button.getElementsByClassName("show-card-method")[0].innerHTML
 
-      // Interpolation: (`myModal-${button.id}`)
-      // Get the button that opens the modal
-      var btn = document.getElementById(`myBtn-${button.id}`);
-      console.log(button.id);
-      // Get the <span> element that closes the modal
-      var span = document.getElementsByClassName("close")[0];
-
-      // When the user clicks on <span> (x), close the modal
-      button.onclick = function() {
-        myModal.style.display = "none";
-      }
       // When the user clicks on the button, open the modal
       button.onclick = function() {
         myModal.style.display = "block";
