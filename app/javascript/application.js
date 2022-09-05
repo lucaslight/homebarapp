@@ -7,7 +7,7 @@ console.log("Hello from app/javascript/application.js")
 // Get the modal
 
 document.addEventListener("turbo:load", () => {
-  let buttons = document.querySelectorAll(".index-card-header");
+  let buttons = document.querySelectorAll(".index-cocktail-name");
   let myModal = document.querySelector(".modal");
 
   let modalName = document.querySelector(".show-cocktail-name");
@@ -15,22 +15,35 @@ document.addEventListener("turbo:load", () => {
   // let modalMethod = document.querySelector(".show-card-method");
 
   buttons.forEach((button) => {
+    // When the user clicks on <span> (x), close the modal
+    button.onclick = function() {
+      myModal.style.display = "none";
+    }
+    // When the user clicks on the button, open the modal
+    button.onclick = function() {
+      myModal.style.display = "block";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+      if (event.target == myModal) {
+        myModal.style.display = "none";
+      }
+    }
+
     button.addEventListener('click', (event) => {
       myModal.id = button.id
       console.log(button.getElementsByClassName("index-card-ingredients"));
       modalName.innerHTML = button.getElementsByClassName("index-cocktail-name")[0].innerHTML
+      // modalIngredients.innerHTML = button.getElementsByClassName("index-card-ingredients")[0].innerHTML
+      // modalMethod.innerHTML = button.getElementsByClassName("show-card-method")[0].innerHTML
 
-      // When the user clicks on the button, open the modal
-      button.onclick = function() {
-        myModal.style.display = "block";
-      }
-
-      // When the user clicks anywhere outside of the modal, close it
-      window.onclick = function(event) {
-        if (event.target == myModal) {
-          myModal.style.display = "none";
-        }
-      }
+      // Interpolation: (`myModal-${button.id}`)
+      // Get the button that opens the modal
+      var btn = document.getElementById(`myBtn-${button.id}`);
+      console.log(button.id);
+      // Get the <span> element that closes the modal
+      var span = document.getElementsByClassName("close")[0];
     })
   })
 })
