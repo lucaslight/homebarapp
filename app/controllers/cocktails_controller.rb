@@ -14,7 +14,7 @@ class CocktailsController < ApplicationController
     if params[:search_query] && current_user
 
       #  CONVERT USER SEARCH INTO INGR INSTANCE
-       search_ingr = Ingredient.find_by(name: params[:search_query])
+       search_ingr = Ingredient.find_by(name: params[:search_query].downcase)
 
       # CABINET LOGIC WITH USER SEARCH
        idk = Cabinet.find_by(ingredient: search_ingr, user: current_user)
