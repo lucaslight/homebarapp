@@ -63,20 +63,26 @@
       </div>
     <% else %>
       <h1>Make these cocktails</h1>
-                  <p>this is the nqme of the lqst cocktqil saved</p><%= @saved_cocktails.last.cocktail.name %>
-                  <p>this is the id of the last cocktail saved</p><%= @saved_cocktails.last.cocktail.id %>
-                  <p>does saved cocktails include the above cocktail </p><%= @saved_cocktails.include?(id: @saved_cocktails.last.cocktail.id) %>
-            
+
       <div class="index">
         <% if @all_found_cocktails %>
           <div class="cards">
             <% @all_found_cocktails.each do |cocktail| %>
+              <%# LOGIC for saved cocktails display %>
+              <% @saved_cocktails.each do |item| %>
+                <% if item.cocktail_id == cocktail.id %>
+                  <% @custom_class = "saved_cocktail_orange" %>
+                <% else %>
+                  <% @custom_class = "" %>
+                <% end %>
+              <% end %>
+                <div class="index-card-wrap <%= @custom_class %>" id="myBtn-<%= cocktail.id %>">
+                  <div class="index-card-header">
+                    <div class="index-card-stock"><p>Ready To Go</p></div>
+                    <div class="index-cocktail-name"><h4><%= cocktail.name.titleize %></h4></div>
+                  </div>
 
-              <div class="index-card-wrap" id="myBtn-<%= cocktail.id %>">
-                <div class="index-card-header">
-                  <div class="index-card-stock"><p>Ready To Go</p></div>
-                  <div class="index-cocktail-name"><h4><%= cocktail.name.titleize %></h4></div>
-                </div>
+
 
                 <% all_ingredient_names_of_found_cocktails = [] %>
                 <div class="index-card-bottom">
@@ -89,13 +95,6 @@
 
 
 
-                  <%# LOGIC for saved cocktails display %>
-                  <% if !@saved_cocktails.include?(cocktail_id: cocktail.id) %>
-                    <%= raise %>
-                    <p>this cocktail is not saved</p>
-                  <% elsif %>
-                    <p>saved</p>
-                  <% end %>
 
 
 
