@@ -8,6 +8,7 @@ class CocktailsController < ApplicationController
   def index
     @cocktails = Cocktail.all
     @ingredients = Ingredient.all
+    @saved_cocktails = SavedCocktail.where(user: current_user)
 
     # <p>TOP OF THE PAGE <%= @all_found_cocktails </p>
     if params[:search_query] && current_user
