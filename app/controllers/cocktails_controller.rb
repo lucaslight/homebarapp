@@ -18,6 +18,7 @@ class CocktailsController < ApplicationController
     @ready = []
     @missing_one = []
     @missing_two = []
+    @saved_cocktails = SavedCocktail.where(user: current_user)
 
     # 1 - get input
     create_ingredient_tags
