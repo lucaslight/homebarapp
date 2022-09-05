@@ -18,7 +18,7 @@
   <div class="cabinet-ingredients">
     <% user_ingredients.each do |item| %>
       <div class="btn-ghost ingredient d-flex align-items-center">
-        <%= item.ingredient.name %>
+        <%= item.ingredient.name.titleize %>
         <%= button_to "X", change_path(item.id), method: :patch, class: "remover" %>
       </div>
     <% end %>
