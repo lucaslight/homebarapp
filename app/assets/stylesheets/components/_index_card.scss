@@ -1,5 +1,7 @@
 .index-card-wrap {
+  position: relative;
   width: 22rem;
+  // height: 10rem;
   border: 2px solid black;
   border-radius: 2px;
   background: #FFFFFF;
@@ -53,6 +55,7 @@
 .index-card-bottom {
   height: 5rem;
   padding: 5px;
+  // position: absolute;
 }
 
 .index-card-ingredients {
@@ -66,4 +69,15 @@
 
 ul {
   margin-bottom: 0;
+}
+
+.fa-circle-plus {
+  position: absolute;
+  color: $black-hb;
+  bottom: 1.5rem;
+  right: 1rem;
+}
+
+.fa-circle-plus:hover {
+  color: $orange-hb;
 }

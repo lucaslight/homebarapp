@@ -20,11 +20,23 @@ class SavedCocktailsController < ApplicationController
 
     @grocery_list = []
     @saved_ingredients.each do |item|
-      @grocery_list << item if !@user_ingredients.include?(item)
+      @grocery_list << item if !@user_ingredients.include?(item) && !@grocery_list.include?(item)
     end
 
     @grocery_list
   end
+
+  def create_from_index
+    new_user_cocktail = Cocktail.find(params[:id])
+
+    if current_user
+      SavedCocktail.create(user: current_user, cocktail_id: new_user_cocktail.id)
+    end
+  end
+
+  def new
+  end
+
 
   def destroy #/delete
   end
