@@ -10,21 +10,21 @@ class CocktailsController < ApplicationController
     @ingredients = Ingredient.all
 
     # <p>TOP OF THE PAGE <%= @all_found_cocktails </p>
-
     if params[:search_query] && current_user
 
       #  CONVERT USER SEARCH INTO INGR INSTANCE
-       search_ingr = Ingredient.find_by(name: params[:search_query].downcase)
+      # search_ingr = Ingredient.find_by(name: params[:search_query].downcase)
+      search_ingr = Ingredient.where('name LIKE ?', "%#{params[:search_query]}%")
 
       # CABINET LOGIC WITH USER SEARCH
-       idk = Cabinet.find_by(ingredient: search_ingr, user: current_user)
+      idk = Cabinet.find_by(ingredient: search_ingr, user: current_user)
 
-       if idk && idk.in_stock == false
-         idk.in_stock = true
-         idk.save!
-       elsif idk == nil
-         Cabinet.create!(ingredient: search_ingr, user: current_user)
-       end
+      if idk && idk.in_stock == false
+        idk.in_stock = true
+        idk.save!
+      elsif idk.nil?
+        Cabinet.create!(ingredient: search_ingr, user: current_user)
+      end
     end
 
     #  SEARCH FUNCTION BELOW
