@@ -1,20 +1,26 @@
-<h6>Show Card</h6>
-<div class="show-card-wrap">
-    <div class="show-cocktail-name"><h4><%= Cocktail.first.name %></h4></div>
-  <div class="show-card-header">
-    <div class="show-card-ingredients">
-      <ul>
-        <p class="text-head"><strong>Ingredients</strong></p>
-        <li>Vodka</li>
-        <li>Kaluah</li>
-        <li>Espresso</li>
-        <li>Coffee Beans</li>
-      </ul>
+<% @ready.each do |cocktail| %>
+  <div class="index-card-wrap" id="myBtn-<%= cocktail %>">
+    <div class="index-card-header">
+      <div class="index-card-stock">
+        <p>
+          Ready To Go
+        </p>
+      </div>
+      <div class="index-cocktail-name">
+        <h4>
+          <%= Cocktail.find_by(id: cocktail).pluck(:name) %>
+        </h4>
+      </div>
     </div>
-    <div class="show-card-photo" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://dosmaderas.com/wp-content/uploads/2021/10/Dos-Maderas-rum-Cocktail-Espresso-Martini-HERO-6.jpg)"></div>
+    <% all_ingredient_names_of_found_cocktails = [] %>
+    <div class="index-card-bottom">
+      <%# <h2> <%= link_to cocktail.name.titleize, cocktail_path(cocktail.id) %>
+      <% cocktail.measurements.each do |measurement| %>
+        <% all_ingredient_names_of_found_cocktails << @ingredients.find(measurement.ingredient_id).name.titleize %>
+      <% end %>
+      <p>
+        <%= all_ingredient_names_of_found_cocktails.to_sentence %>
+      </p>
+    </div>
   </div>
-
-  <div class="show-card-bottom">
-    <div class="show-card-method"><p><%= Cocktail.first.instructions %></p></div>
-  </div>
-</div>
+<% end %>

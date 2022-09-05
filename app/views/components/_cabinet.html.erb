@@ -6,7 +6,12 @@
     </div>
     <div class="search-results">
       <button name="button" type="submit" class="btn-flat">Add ingredient</button>
-      <h5><%= user_ingredients.length %> Ingredients</h5>
+      <h5>
+        <% unless user_ingredients.nil? %>
+        <%= user_ingredients.length %>
+        <% end %>
+        Ingredients
+      </h5>
       <%if @all_found_cocktails %>
         <h5><%= @all_found_cocktails.to_a.length %> Cocktails Found</h5>
       <% elsif %>
@@ -16,11 +21,13 @@
   </div>
 
   <div class="cabinet-ingredients">
-    <% user_ingredients.each do |item| %>
-      <div class="btn-ghost ingredient d-flex align-items-center">
-        <%= item.ingredient.name.titleize %>
-        <%= button_to "X", change_path(item.id), method: :patch, class: "remover" %>
-      </div>
+    <% unless user_ingredients.nil? %>
+      <% user_ingredients.each do |item| %>
+        <div class="btn-ghost ingredient d-flex align-items-center">
+          <%= item.ingredient.name %>
+          <%= button_to "X", change_path(item.id), method: :patch, class: "remover" %>
+        </div>
+      <% end %>
     <% end %>
   </div>
 </div>
