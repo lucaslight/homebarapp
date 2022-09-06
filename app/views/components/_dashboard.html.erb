@@ -12,31 +12,10 @@
     <ul class="grocery-list">
       <% grocery_list.each do |item| %>
         <li class="grocery-list-item">
-        <%= item %>
-        <%= button_to "ADD", add_ingredient_to_cabinet_from_grocery_list_path(item.id), method: :patch, class: "remover" %>
-        <%# <% raise %> %>
-        <%= item.name.titleize %>
+          <%= button_to "ADD", add_ingredient_to_cabinet_from_grocery_list_path(item.id), method: :patch, class: "remover" %>
+          <%= item.name.titleize %>
         </li>
       <% end %>
     </ul>
-  </div>
-</div>
-
-
-<%# <% saved_cocktail = SavedCocktail.find_by(user_id: current_user.id, cocktail_id: cocktail.id)  %> %>
-<%# <% if saved_cocktail %> %>
-  <%# <%= button_to "", saved_cocktail_path(saved_cocktail), method: :delete, class:"fa-solid fa-circle-minus fa-2xl" %> %>
-<%# <% else %> %>
-  <%# <%= button_to "", saved_from_index_path(cocktail.id), method: :post, class:"fa-solid fa-circle-plus fa-2xl" %> %>
-<%# <% end %> %>
-
-
-<%# ADD TO MY BAR BUTTON DISPLAY LOGIC %>
-    <% saved_cocktail = SavedCocktail.find_by(user_id: current_user.id, cocktail_id: cocktail.id)  %>
-    <% if saved_cocktail %>
-      <%= button_to "", saved_cocktail_path(saved_cocktail), method: :delete, class:"fa-solid fa-circle-minus fa-2xl" %>
-    <% else %>
-      <%= button_to "", saved_from_index_path(cocktail.id), method: :post, class:"fa-solid fa-circle-plus fa-2xl" %>
-    <% end %>
   </div>
 </div>
