@@ -34,24 +34,36 @@
     padding-left: 0;
   }
   & li {
-    padding-left: 2rem;
-    background-image: url("square-regular.svg");
-    background-position: 0 0;
-    background-size: 1.6rem 1.6rem;
-    background-repeat: no-repeat;
+  //   padding-left: 2rem;
+  //   background-image: url("square-regular.svg");
+  //   background-position: 0 0;
+  //   background-size: 1.6rem 1.6rem;
+  //   background-repeat: no-repeat;
     margin: .3rem;
   }
-  & li:hover {
-    padding-left: 2rem;
-    background-image: url("square-check-regular.svg");
-    background-position: 0 0;
-    background-size: 1.6rem 1.6rem;
-    background-repeat: no-repeat;
-  }
+  // & li:hover {
+  //   padding-left: 2rem;
+  //   background-image: url("square-check-regular.svg");
+  //   background-position: 0 0;
+  //   background-size: 1.6rem 1.6rem;
+  //   background-repeat: no-repeat;
+  // }
 }
 .grocery-list-item {
   background-color: $white-hb;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
+
+.fa-solid {
+  color: $black-hb;
+}
+
+.fa-solid:hover {
+  color: $orange-hb;
+}
+
 .saved-cocktails-list-item {
   background-color: $white-hb;
 }
