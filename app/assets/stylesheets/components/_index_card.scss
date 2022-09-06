@@ -36,6 +36,9 @@
   justify-content: center;
   border-bottom: 2px solid black;
 }
+
+
+
 .index-card-stock {
   display: flex;
   align-items: center;
@@ -49,6 +52,11 @@
     margin: 0;
     padding: 6px;
   }
+}
+
+.saved_cocktail_orange {
+  color: $black-hb;
+  background-color: $orange-hb;
 }
 
 .index-cocktail-name {
@@ -94,10 +102,4 @@ ul {
 button {
   border: none;
   background-color: white;
-}
-
-
-.saved_cocktail_orange {
-  color: $black-hb;
-  background-color: $orange-hb;
 }
