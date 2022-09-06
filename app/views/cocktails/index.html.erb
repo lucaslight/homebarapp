@@ -16,9 +16,11 @@
                   <% classes[cocktail.id] = "saved_cocktail_orange" %>
                 <% end %>
               <% end %>
-                <div class="index-card-wrap <%= classes[cocktail.id] %>" id="myBtn-<%= cocktail.id %>">
+                <div class="index-card-wrap" id="myBtn-<%= cocktail.id %>">
                   <div class="index-card-header">
-              <div class="index-card-stock"><p>Ready To Go</p></div>
+                  <div class="index-card-stock <%= classes[cocktail.id] %>">
+                    <p>Ready To Go</p>
+                  </div>
               <div class="index-cocktail-name"><h4><%= cocktail.name.titleize %></h4></div>
             </div>
                 <% all_ingredient_names_of_found_cocktails = [] %>

@@ -33,8 +33,9 @@
 .index-card-stock {
   display: flex;
   align-items: center;
-  background: black;
-  color: #EE9C19;
+  background: $black-hb;
+  color: $orange-hb;
+  // border-right: 2px solid black;
   font-weight: 900;
   flex-shrink: 0;
   height: 4rem;
@@ -43,11 +44,6 @@
     margin: 0;
     padding: 6px;
   }
-}
-
-.saved_cocktail_orange {
-  color: $black-hb;
-  background-color: $orange-hb;
 }
 
 .index-cocktail-name {
@@ -96,6 +92,24 @@ button {
 }
 
 .saved_cocktail_orange {
-  color: $black-hb;
-  background-color: $orange-hb;
+  border-color: $orange-hb;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
+
+.saved_cocktail_orange .index-card-header {
+  border-color: $orange-hb;
+}
+
+.saved_cocktail_orange .index-card-stock {
+  background-color: $orange-hb;
+  color: $black-hb;
+}
+
+
+
+
+// .saved_cocktail_orange {
+//   color: $black-hb;
+//   background-color: $orange-hb;
+//   border-color: $orange-hb;
+// }
