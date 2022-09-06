@@ -71,14 +71,15 @@
                         <% case %>
                           <%# raise %>
                         <% when @ready.include?(cocktail) %>
-                          <%# raise %>
-                          <%= 'Ready to go' %>
+                          <%#= 'Ready to go' %>
+                          <i class="fa-solid fa-user-check"></i>
                         <% when @missing_one.include?(cocktail) %>
-                          <%# raise %>
-                          <%= '-1' %>
+                          <%#= '-1' %>
+                          <i class="fa-solid fa-basket-shopping"></i>
                         <% when @missing_two.include?(cocktail) %>
-                          <%# raise %>
-                          <%= '-2' %>
+                          <%#= '-2' %>
+                          <i class="fa-solid fa-basket-shopping"></i>
+                          <i class="fa-solid fa-basket-shopping"></i>
                         <% end %>
                       </p>
                     </div>
