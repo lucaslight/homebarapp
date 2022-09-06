@@ -11,17 +11,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-basis: 50%;
 }
 
 .search-bar {
-  // background-color: red;
-  width: 50%;
+  width: 57.5%;
 }
 
 .search-results {
-  // background-color: yellow;
-  width: 45%;
+  // width: 45%;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
@@ -61,4 +58,10 @@
   background-color: white;
   font-size: large;
   font-weight: bolder;
+}
+
+.text-orange {
+  color: $orange-hb;
+  font-weight: bolder;
+  font-size: x-large;
 }
