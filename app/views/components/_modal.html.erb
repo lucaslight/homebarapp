@@ -1,0 +1,60 @@
+<div class="modal" id="myModal-<%=cocktail.id %>">
+  <div class="show-card-wrap modal-content">
+    <div class="show-cocktail-name">
+      <h4>
+        Title HERE
+      </h4>
+    </div>
+  <div class="show-card-header">
+    <div class="show-card-ingredients">
+      <ul>
+        <p class="text-head">
+          <strong>
+            Ingredients
+          </strong>
+        </p>
+        <% cocktail.measurements.each do |measurement| %>
+          <li>
+            <%= measurement.quantity %> <%= measurement.unit %>
+              of
+            <%= @ingredients.find(measurement.ingredient_id).name %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+    <div
+      class="show-card-photo"
+      style="background-image:
+        linear-gradient(rgba(0,0,0,0.3),
+        rgba(0,0,0,0.3)),
+        url(https://dosmaderas.com/wp-content/uploads/2021/10/Dos-Maderas-rum-Cocktail-Espresso-Martini-HERO-6.jpg)"
+    >
+    </div>
+  </div>
+  <div class="show-card-bottom">
+    <div class="show-card-method">
+      <p>
+        <strong>
+          Method:
+        </strong>
+        <%= cocktail.instructions %>
+      </p>
+    </div>
+    <div class="show-card-footer">
+      <% if cocktail.alcoholic == true %>
+        <p>
+          <i>
+            Contains alcohol
+          </i>
+        </p>
+      <% elsif %>
+        <br>
+        <p>
+          <i>
+            Does not contain alcohol
+          </i>
+        </p>
+      <% end %>
+    </div>
+  </div>
+</div>
