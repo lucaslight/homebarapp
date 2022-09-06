@@ -115,14 +115,13 @@
                           <%# raise %>
                         <% when @ready.include?(cocktail) %>
                           <%#= 'Ready to go' %>
-                          <i class="fa-solid fa-user-check"></i>
+                          <i class="fa-solid fa-champagne-glasses fa-lg"></i>
                         <% when @missing_one.include?(cocktail) %>
                           <%#= '-1' %>
-                          <i class="fa-solid fa-basket-shopping"></i>
+                          1 <i class="fa-solid fa-basket-shopping fa-xs"></i>
                         <% when @missing_two.include?(cocktail) %>
                           <%#= '-2' %>
-                          <i class="fa-solid fa-basket-shopping"></i>
-                          <i class="fa-solid fa-basket-shopping"></i>
+                          2 <i class="fa-solid fa-basket-shopping fa-xs"></i>
                         <% end %>
                       </p>
                     </div>
