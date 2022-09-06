@@ -40,3 +40,7 @@ h1 {
   opacity: 1;
   margin-bottom: 0;
 }
+
+.navbar-brand h1:hover {
+  color: $orange-hb;
+}

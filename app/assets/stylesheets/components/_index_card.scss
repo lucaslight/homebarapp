@@ -33,8 +33,8 @@
 .index-card-stock {
   display: flex;
   align-items: center;
-  background: black;
-  color: #EE9C19;
+  background: $black-hb;
+  color: $orange-hb;
   font-weight: 900;
   flex-shrink: 0;
   height: 4rem;
@@ -43,11 +43,6 @@
     margin: 0;
     padding: 6px;
   }
-}
-
-.saved_cocktail_orange {
-  color: $black-hb;
-  background-color: $orange-hb;
 }
 
 .index-cocktail-name {
@@ -63,7 +58,6 @@
 .index-card-bottom {
   height: 5rem;
   padding: 5px;
-  // position: absolute;
 }
 
 .index-card-ingredients {
@@ -79,23 +73,32 @@ ul {
   margin-bottom: 0;
 }
 
-.fa-circle-plus {
-  position: absolute;
-  color: $black-hb;
-  bottom: 1.5rem;
-  right: 1rem;
-}
-
-.fa-circle-plus:hover {
-  color: $orange-hb;
-}
-
 button {
   border: none;
   background-color: white;
 }
 
 .saved_cocktail_orange {
-  color: $black-hb;
+  border-color: $orange-hb;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.saved_cocktail_orange .index-card-header {
+  border-color: $orange-hb;
+}
+
+.saved_cocktail_orange .index-card-stock {
   background-color: $orange-hb;
+  color: $black-hb;
+}
+
+.fa-circle-plus, .fa-circle-minus {
+  position: absolute;
+  color: $black-hb;
+  bottom: 1.5rem;
+  right: 1rem;
+}
+
+.fa-circle-minus:hover, .fa-circle-plus:hover {
+  color: $orange-hb;
 }

@@ -4,20 +4,20 @@
     <div class="search-bar">
       <%= render "components/searchform" %>
     </div>
-    <div class="search-results">
-      <button name="button" type="submit" class="btn-flat">Add ingredient</button>
+    <%# <div class="search-results"> %>
+      <%# <button name="button" type="submit" class="btn-flat">Add ingredient</button> %>
       <h5>
         <% unless user_ingredients.nil? %>
-        <%= user_ingredients.length %>
+        <span class="text-orange"><%= user_ingredients.length %></span>
         <% end %>
-        Ingredients
+        &nbsp Ingredients
       </h5>
       <%if @all_found_cocktails %>
-        <h5><%= @all_found_cocktails.to_a.length %> Cocktails Found</h5>
+        <h5><span class="text-orange"><%= @all_found_cocktails.to_a.length %></span>&nbsp Cocktails Found</h5>
       <% elsif %>
-        <h5><%= @saved_cocktails.to_a.length %> Selected Cocktails</h5>
+        <h5><span class="text-orange"><%= @saved_cocktails.to_a.length %></span>&nbsp Selected Cocktails</h5>
       <% end %>
-    </div>
+    <%# </div> %>
   </div>
 
   <div class="cabinet-ingredients">
