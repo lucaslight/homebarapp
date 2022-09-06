@@ -2,9 +2,9 @@
 
 <%= render "components/cabinet", user_ingredients: @user_ingredients_in_stock, found_cocktails: @all_found_cocktails %>
 
-  <div class="search container">
+  <div class="index g-0">
     <% if @all_found_cocktails.empty? %>
-      <h1>All Our Cocktails</h1>
+      <div><h1>All Our Cocktails</h1></div>
       <div class="cards">
 
         <% @cocktails.each do |cocktail| %>

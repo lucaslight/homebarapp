@@ -11,15 +11,6 @@
   }
 }
 
-.search-container {
-  border-radius: 0 0 4px 4px;
-  border: 1px solid #252422;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  flex-wrap: wrap-reverse;
-}
-
 .index-card-photo {
   background-size: cover;
   background-position: 50% 40%;
@@ -102,4 +93,9 @@ ul {
 button {
   border: none;
   background-color: white;
+}
+
+.saved_cocktail_orange {
+  color: $black-hb;
+  background-color: $orange-hb;
 }

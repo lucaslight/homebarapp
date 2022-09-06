@@ -47,7 +47,7 @@ class CocktailsController < ApplicationController
 
   def create_ingredient_tags
     if params[:search_query].present? && current_user
-      search_ingr = Ingredient.find_by(name: params[:search_query])
+      search_ingr = Ingredient.where('name LIKE ?', "%#{params[:search_query].downcase}%").first
       # 2 - save to cabinet || @user_ingredients_in_stock
       @idk = Cabinet.find_by(ingredient: search_ingr, user: current_user)
       if @idk && @idk.in_stock == false
