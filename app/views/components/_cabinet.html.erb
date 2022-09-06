@@ -12,8 +12,8 @@
         <% end %>
         &nbsp Ingredients
       </h5>
-      <%if @all_found_cocktails %>
-        <h5><span class="text-orange"><%= @all_found_cocktails.to_a.length %></span>&nbsp Cocktails Found</h5>
+      <%if @filtered_cocktails %>
+        <h5><span class="text-orange"><%= @filtered_cocktails.to_a.length %></span>&nbsp Cocktails Found</h5>
       <% elsif %>
         <h5><span class="text-orange"><%= @saved_cocktails.to_a.length %></span>&nbsp Selected Cocktails</h5>
       <% end %>
