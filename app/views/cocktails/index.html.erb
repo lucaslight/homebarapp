@@ -18,7 +18,11 @@
               <% end %>
               <div class="index-card-wrap <%= classes[cocktail.id] %>" id="myBtn-<%= cocktail.id %>">
                   <div class="index-card-header">
-                    <div class="index-card-stock"><p>Ready To Go</p></div>
+                    <div class="index-card-stock">
+                    <p>
+                      <i class="fa-solid fas fa-martini-glass-empty"></i>
+                    </p>
+                    </div>
                     <div class="index-cocktail-name"><h4><%= cocktail.name.titleize %></h4></div>
                       <ul class="index-measurements" style="visibility: hidden; height: 0px;">
                         <p class="text-head"><strong>Ingredients</strong></p>
