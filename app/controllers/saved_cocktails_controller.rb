@@ -28,28 +28,17 @@ class SavedCocktailsController < ApplicationController
 
   def create_from_index
     new_user_cocktail = Cocktail.find(params[:id])
-
     if current_user
       SavedCocktail.create(user: current_user, cocktail_id: new_user_cocktail.id)
     end
-
-
+    redirect_to cocktails_path
   end
 
   def new
   end
 
   def destroy
-  end
-
-  def destroy_from_index
-    user_cocktail_to_destroy = Cocktail.find(params[:id])
-
-    # raise
-      if current_user
-        SavedCocktail.destroy(user: current_user, cocktail_id: user_cocktail_to_destroy.id)
-
-        # redirect_to cocktails_path, status: :see_other
-      end
+    SavedCocktail.find(params[:id]).destroy
+    redirect_to cocktails_path, status: :see_other
   end
 end

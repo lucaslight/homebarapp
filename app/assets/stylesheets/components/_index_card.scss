@@ -92,24 +92,13 @@ button {
   color: $black-hb;
 }
 
-.fa-circle-plus {
+.fa-circle-plus, .fa-circle-minus {
   position: absolute;
   color: $black-hb;
   bottom: 1.5rem;
   right: 1rem;
 }
 
-.fa-circle-minus  {
-  position: absolute;
-  color: $black-hb;
-  bottom: 1.5rem;
-  right: 5rem;
-}
-
-.fa-circle-plus:hover {
-  color: $orange-hb;
-}
-
-.fa-circle-minus:hover {
+.fa-circle-minus:hover, .fa-circle-plus:hover {
   color: $orange-hb;
 }
