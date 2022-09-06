@@ -43,7 +43,13 @@
                       <% all_ingredient_names_of_found_cocktails << @ingredients.find(measurement.ingredient_id).name.titleize %>
                     <% end %>
                     <p><%= all_ingredient_names_of_found_cocktails.to_sentence %></p>
-                    <%= button_to "", saved_from_index_path(cocktail.id), method: :post, class:"fa-solid fa-circle-plus fa-2xl saver" %>
+                    <%# ADD TO MY BAR BUTTON DISPLAY LOGIC %>
+                    <% saved_cocktail = SavedCocktail.find_by(user_id: current_user.id, cocktail_id: cocktail.id)  %>
+                    <% if saved_cocktail %>
+                      <%= button_to "", saved_cocktail_path(saved_cocktail), method: :delete, class:"fa-solid fa-circle-minus fa-2xl" %>
+                    <% else %>
+                      <%= button_to "", saved_from_index_path(cocktail.id), method: :post, class:"fa-solid fa-circle-plus fa-2xl" %>
+                    <% end %>
                   </div>
                 </div>
 
@@ -86,9 +92,9 @@
       <h1>Make these cocktails</h1>
 
       <div class="index g-0">
-        <% if @all_found_cocktails %>
-          <div class="cards">
-            <% @all_found_cocktails.each do |cocktail| %>
+        <% if @filtered_cocktails %>
+          <div 3lass="cards">
+            <% @filtered_cocktails.each do |cocktail| %>
               <%# LOGIC for saved cocktails display %>
               <% classes = {  normal: '' } %>
               <% @saved_cocktails.each do |item| %>
@@ -99,7 +105,23 @@
               <% end %>
                 <div class="index-card-wrap <%= classes[cocktail.id] %>" id="myBtn-<%= cocktail.id %>">
                   <div class="index-card-header">
-                    <div class="index-card-stock"><p>Ready To Go</p></div>
+                    <div class="index-card-stock">
+                      <p>
+                        <% case %>
+                          <%# raise %>
+                        <% when @ready.include?(cocktail) %>
+                          <%#= 'Ready to go' %>
+                          <i class="fa-solid fa-user-check"></i>
+                        <% when @missing_one.include?(cocktail) %>
+                          <%#= '-1' %>
+                          <i class="fa-solid fa-basket-shopping"></i>
+                        <% when @missing_two.include?(cocktail) %>
+                          <%#= '-2' %>
+                          <i class="fa-solid fa-basket-shopping"></i>
+                          <i class="fa-solid fa-basket-shopping"></i>
+                        <% end %>
+                      </p>
+                    </div>
                     <div class="index-cocktail-name"><h4><%= cocktail.name.titleize %></h4></div>
                       <ul class="index-measurements" style="visibility: hidden; height: 0px;">
                         <p class="text-head"><strong>Ingredients</strong></p>
@@ -124,7 +146,13 @@
                       <% all_ingredient_names_of_found_cocktails << @ingredients.find(measurement.ingredient_id).name.titleize %>
                     <% end %>
                     <p><%= all_ingredient_names_of_found_cocktails.to_sentence %></p>
-                    <%= button_to "", saved_from_index_path(cocktail.id), method: :post, class:"fa-solid fa-circle-plus fa-2xl saver" %>
+                    <%# ADD TO MY BAR BUTTON DISPLAY LOGIC %>
+                    <% saved_cocktail = SavedCocktail.find_by(user_id: current_user.id, cocktail_id: cocktail.id)  %>
+                    <% if saved_cocktail %>
+                      <%= button_to "", saved_cocktail_path(saved_cocktail), method: :delete, class:"fa-solid fa-circle-minus fa-2xl" %>
+                    <% else %>
+                      <%= button_to "", saved_from_index_path(cocktail.id), method: :post, class:"fa-solid fa-circle-plus fa-2xl" %>
+                    <% end %>
                   </div>
                 </div>
 

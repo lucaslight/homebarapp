@@ -19,6 +19,7 @@ class CocktailsController < ApplicationController
     @missing_one = []
     @missing_two = []
     @saved_cocktails = SavedCocktail.where(user: current_user)
+    @filtered_cocktails = []
 
     # 1 - get input
     create_ingredient_tags
@@ -27,23 +28,15 @@ class CocktailsController < ApplicationController
     # 4 - Filter results to unique recurrence
     @all_found_cocktails = Cocktail.where(id: @found_cocktails_id.uniq)
     # 5 - Compare
-    @all_found_cocktails.pluck(:id).each do |cocktailid| #=> [id, id, id]
-      @result_cocktail_ingredients = Measurement.where(cocktail_id: cocktailid).pluck(:ingredient_id) #=> [id, id, id]
-      @result_cabinet_ingredients = @user_ingredients_in_stock.pluck(:ingredient_id) #=> [id, id, id]
-      @missing_ingredients = @result_cocktail_ingredients - @result_cabinet_ingredients
-      case @missing_ingredients.count
-      when 0
-        @ready = Cocktail.where(id: cocktailid)
-      when 1
-        @missing_one = Cocktail.where(id: cocktailid)
-      when 2
-        @missing_two = Cocktail.where(id: cocktailid)
-      end
-    end
-
+    compare_ingredients
+    # 6 - Filter cocktails (ready, -1, -2)
+    @filtered_cocktails = @ready, @missing_one, @missing_two
+    @filtered_cocktails.flatten!
+    @ready.flatten!
+    @missing_one.flatten!
+    @missing_two.flatten!
     # raise
   end
-
 
   def create_ingredient_tags
     if params[:search_query].present? && current_user
@@ -69,8 +62,19 @@ class CocktailsController < ApplicationController
     end
   end
 
-    # 4 - iterate thru results and count recurrence of each cocktail
-    # compare cocktail count to number of ingredients
-    #cocktail_count - cocktail_ingredient_count = num
-    # store cocktail in separate arrays i f diff (num) "0 or 1 or 2"
+  def compare_ingredients
+    @all_found_cocktails.pluck(:id).each do |cocktailid| #=> [id, id, id]
+      @result_cocktail_ingredients = Measurement.where(cocktail_id: cocktailid).pluck(:ingredient_id) #=> [id, id, id]
+      @result_cabinet_ingredients = @user_ingredients_in_stock.pluck(:ingredient_id) #=> [id, id, id]
+      @missing_ingredients = @result_cocktail_ingredients - @result_cabinet_ingredients
+      case @missing_ingredients.count
+      when 0
+        @ready << Cocktail.where(id: cocktailid)
+      when 1
+        @missing_one << Cocktail.where(id: cocktailid)
+      when 2
+        @missing_two << Cocktail.where(id: cocktailid)
+      end
+    end
+  end
 end
