@@ -39,7 +39,17 @@ class SavedCocktailsController < ApplicationController
   def new
   end
 
+  def destroy
+  end
 
-  def destroy #/delete
+  def destroy_from_index
+    user_cocktail_to_destroy = Cocktail.find(params[:id])
+
+    # raise
+      if current_user
+        SavedCocktail.destroy(user: current_user, cocktail_id: user_cocktail_to_destroy.id)
+
+        # redirect_to cocktails_path, status: :see_other
+      end
   end
 end

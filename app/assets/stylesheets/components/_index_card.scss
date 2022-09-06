@@ -35,7 +35,6 @@
   align-items: center;
   background: $black-hb;
   color: $orange-hb;
-  // border-right: 2px solid black;
   font-weight: 900;
   flex-shrink: 0;
   height: 4rem;
@@ -59,7 +58,6 @@
 .index-card-bottom {
   height: 5rem;
   padding: 5px;
-  // position: absolute;
 }
 
 .index-card-ingredients {
@@ -73,17 +71,6 @@
 
 ul {
   margin-bottom: 0;
-}
-
-.fa-circle-plus {
-  position: absolute;
-  color: $black-hb;
-  bottom: 1.5rem;
-  right: 1rem;
-}
-
-.fa-circle-plus:hover {
-  color: $orange-hb;
 }
 
 button {
@@ -105,11 +92,24 @@ button {
   color: $black-hb;
 }
 
+.fa-circle-plus {
+  position: absolute;
+  color: $black-hb;
+  bottom: 1.5rem;
+  right: 1rem;
+}
 
+.fa-circle-minus  {
+  position: absolute;
+  color: $black-hb;
+  bottom: 1.5rem;
+  right: 5rem;
+}
 
+.fa-circle-plus:hover {
+  color: $orange-hb;
+}
 
-// .saved_cocktail_orange {
-//   color: $black-hb;
-//   background-color: $orange-hb;
-//   border-color: $orange-hb;
-// }
+.fa-circle-minus:hover {
+  color: $orange-hb;
+}
