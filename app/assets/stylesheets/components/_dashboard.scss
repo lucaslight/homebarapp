@@ -1,34 +1,40 @@
 .dashboard {
-  background-color: $white;
-  border-radius: 0 0 4px 4px;
-  border: 1px solid $black-hb;
+  // border-radius: 0 0 4px 4px;
+  // border: 1px solid $black-hb;
   display: flex;
-  flex-direction: row;
+  // flex-direction: column;
   justify-content: space-between;
-  flex-wrap: wrap-reverse;
-  & li:hover{
-    font-weight: bolder;
-  }
-  & h3{
-    text-justify: center;
-  }
+  gap: 2rem;
+  // flex-wrap: wrap-reverse;
+  // & li:hover{
+  //   font-weight: bolder;
+  // }
+  // & h3{
+  //   text-justify: center;
+  // }
 }
+
 .dashboard-saved-cocktails {
-  border-left: .5px solid $black-hb;
+// border-left: .5px solid $black-hb;
   width: 50%;
-  padding: 1.5rem;
-  & ul {
-    list-style-type: none;
-    padding-left: 0;
-  }
-  & li {
-    margin: .3rem;
-  }
+  background-color: white;
+  border: 1px solid $black-hb;
+  padding: 1rem;
+  // margin-right: 1rem;
+// & ul {
+//   list-style-type: none;
+//   padding-left: 0;
+// }
+// & li {
+//   margin: .3rem;
 }
+
 .dashboard-grocery {
-  border-right: .5px solid $black-hb;
+  // border-right: .5px solid $black-hb;
   width: 50%;
-  padding: 1.5rem;
+  background-color: white;
+  border: 1px solid $black-hb;
+  padding: 1rem;
   & ul {
     list-style-type: none;
     padding-left: 0;
@@ -39,7 +45,7 @@
   //   background-position: 0 0;
   //   background-size: 1.6rem 1.6rem;
   //   background-repeat: no-repeat;
-    margin: .3rem;
+    margin-bottom: .3rem;
   }
   // & li:hover {
   //   padding-left: 2rem;
@@ -49,21 +55,22 @@
   //   background-repeat: no-repeat;
   // }
 }
-.grocery-list-item {
-  background-color: $white-hb;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+
+.dashboard h2 {
+  font-family: $headers-font;
+  margin-bottom: 2rem;
 }
 
-.fa-solid {
-  color: $black-hb;
+.dashboard-grocery .header h2 {
+  // color: yellow;
+  // background-color: red;
 }
 
-.fa-solid:hover {
-  color: $orange-hb;
+.dashboard-grocery .header .btn-flat {
+  width: 25%;
+  height: 2.8rem;
+  font-size: 1rem;
+  text-align: center;
 }
 
-.saved-cocktails-list-item {
-  background-color: $white-hb;
-}
+// fa-solid fa-share-nodes

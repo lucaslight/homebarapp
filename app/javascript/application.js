@@ -1,7 +1,7 @@
 // Configure your import map in config/importmap.rb. Read more: https://github.com/rails/importmap-rails
-import "@hotwired/turbo-rails";
-import "./controllers";
-import "bootstrap";
+import "@hotwired/turbo-rails"
+import "./controllers"
+import "bootstrap"
 console.log("app/javascript/application.js is connected");
 
 // Get the modal
@@ -44,6 +44,6 @@ document.addEventListener("turbo:load", () => {
       // modalBottom Displays the Method and whether the drink contains alcohol or not:
       modalBottom.innerHTML = button.parentNode.parentNode.getElementsByClassName("modal-bottom")[0].outerHTML;
       modalBottom.parentNode.parentNode.getElementsByClassName("modal-bottom")[0].style = "none";
-    });
-  });
-});
+    })
+  })
+})
