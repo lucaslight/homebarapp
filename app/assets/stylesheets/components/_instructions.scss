@@ -4,22 +4,37 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
+
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.info{
+  width: auto;
+  max-width: 650px;
+  margin-right: 2rem;
 }
 .img-instructions{
   // transform: rotate(-2deg);
-  // width: 160px;
-  // height: 200px;
-  border: 3px black solid;
+  width: 160px;
+  height: 200px;
+  // border: 3px black solid;
   margin: 0 1rem;
 }
 .img-instructions2{
   // transform: rotate(2deg);
-  // width: 160px;
-  // height: 200px;
-  border: 3px black solid;
+  width: 160px;
+  height: 200px;
+  // border: 3px black solid;
   margin: 0 1rem;
 }
 .images{
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
+
+}
+.img_size{
+  width: 160px;
+
 }
