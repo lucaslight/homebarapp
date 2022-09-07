@@ -18,10 +18,10 @@ class User < ApplicationRecord
   private
 
   def age_restriction
-    if (birth_date.to_date + 18.years) < Date.today
+    if (birth_date + 18.years) < Date.today
       return
     else
-      errors.add :birth_date, 'must be older than 18'
+      errors.add(:birth_date, message: 'must be older than 18')
     end
   end
 end
