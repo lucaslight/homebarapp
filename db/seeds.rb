@@ -124,7 +124,7 @@ def cocktails_dataset
 
   cocktails_array = cocktails_array.flatten
 
-  
+
 
 
   cocktails_array.each do |c|
@@ -249,9 +249,9 @@ def cocktails_dataset
         unit: unit
       )
 
-      puts "ISSUE WHEERE FUCK***********************************"
-      p c['strDrink']
-      p measurements_of_c
+      # puts "ISSUE WHEERE FUCK***********************************"
+      # p c['strDrink']
+      # p measurements_of_c
 
     end
 
