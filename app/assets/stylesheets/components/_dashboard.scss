@@ -15,19 +15,19 @@
 }
 
 .dashboard-saved-cocktails {
-  // border-left: .5px solid $black-hb;
-    width: 50%;
-    background-color: white;
-    border: 1px solid $black-hb;
-    padding: 1rem;
-    // margin-right: 1rem;
-  // & ul {
-  //   list-style-type: none;
-  //   padding-left: 0;
-  // }
-  // & li {
-  //   margin: .3rem;
-  }
+// border-left: .5px solid $black-hb;
+  width: 50%;
+  background-color: white;
+  border: 1px solid $black-hb;
+  padding: 1rem;
+  // margin-right: 1rem;
+// & ul {
+//   list-style-type: none;
+//   padding-left: 0;
+// }
+// & li {
+//   margin: .3rem;
+}
 
 .dashboard-grocery {
   // border-right: .5px solid $black-hb;
@@ -56,16 +56,10 @@
   // }
 }
 
-.dashboard-grocery .header {
-  display: flex;
-  justify-content: space-between;
-}
-
 .dashboard h2 {
   font-family: $headers-font;
   margin-bottom: 2rem;
 }
-
 
 .dashboard-grocery .header h2 {
   // color: yellow;

@@ -1,14 +1,11 @@
 <div class="dashboard">
   <div class="dashboard-saved-cocktails">
     <h2>Selected cocktails</h2>
-    <%= render "components/saved_cocktail_card", saved_cocktails: @saved_cocktails %>
+      <%= render "components/saved_cocktail_card", saved_cocktails: @saved_cocktails %>
   </div>
 
   <div class="dashboard-grocery">
-    <div class="header">
-      <h2>Grocery list</h2>
-      <a class="btn-flat" href="#" ><i class="fa-solid fa-share-nodes fa-xl"></i></a>
-    </div>
+    <h2>Grocery list</h2>
     <%= render "components/grocery_list", grocery_list: @grocery_list %>
   </div>
 </div>

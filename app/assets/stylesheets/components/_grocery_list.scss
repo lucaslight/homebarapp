@@ -15,6 +15,7 @@
 }
 
 .grocery-result {
+  width: 100%;
   font-size: x-large;
   font-weight: bold;
   color: $black-hb;
@@ -31,9 +32,17 @@
   font-size:xx-large;
 }
 
-.grocery-result .btn-flat {
-  width: 25%;
-  height: 2.8rem;
-  font-size: 1rem;
+.share .btn-flat {
+  width: 100%;
+  margin-top: 2rem;
+  color:white;
+  background-color: $black-hb;
+  border: 1px solid $black-hb;
+  font-size: x-large;
   text-align: center;
+}
+
+.btn-large:hover {
+  color: $black-hb;
+  background-color: $orange-hb;
 }
