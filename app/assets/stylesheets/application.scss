@@ -31,11 +31,32 @@
   overflow: hidden;
 }
 label{
-  padding-right: 1rem;
+  padding: 1rem;
 }
 form{
-  background-color: white;
+  // background-color: white;
+  // border-radius: 20px;
+  // padding: 2rem;
+}
+.form-content-container {
+  width: fit-content;
   border-radius: 20px;
+  background-color: white;
   padding: 2rem;
 }
+.small-hint{
+  margin: 0;
+  font-size: x-small;
+  padding-left: 1rem;
+}
 
+input{
+  width: auto;
+}
+.center {
+  justify-content: center;
+  display: flex;
+}
+.form-actions{
+  margin-bottom: 1rem;
+}
