@@ -103,6 +103,7 @@ def cocktails_dataset
   ingredients_array = JSON.parse(ingredients)['drinks']
 
   ingredients_array.each do |i|
+    i["strIngredient1"] = i["strIngredient1"].downcase
     Ingredient.create!(
       name: i['strIngredient1']
     )
@@ -112,7 +113,6 @@ def cocktails_dataset
 
   puts "Creating cocktails from API"
 
-
   cocktails_array = []
 
   @all_iba_cocktails.each do |i|
@@ -120,12 +120,7 @@ def cocktails_dataset
     # .split("}")[0]
     cocktails_array << JSON.parse(cocktails)["drinks"]
   end
-
-
   cocktails_array = cocktails_array.flatten
-
-
-
 
   cocktails_array.each do |c|
     var = Cocktail.create!(
@@ -137,7 +132,6 @@ def cocktails_dataset
       IBA: c['strIBA'],
       tags: c['strTags']
     )
-    # puts var.name
   end
 
   puts "FINISHED creating #{Cocktail.count} cocktails"
@@ -148,7 +142,6 @@ def cocktails_dataset
   puts "************ Creating measurements and ingredients *************"
 
   cocktails_array.each do |c|
-
     # Get all ingredients of that cocktail
     ingredient1 = c['strIngredient1']
     ingredient2 = c['strIngredient2']
@@ -171,8 +164,7 @@ def cocktails_dataset
       ingredient12, ingredient13, ingredient14, ingredient15].reject { |ing| ing == nil }
 
     # Clean up ingredients of that cocktail (capitalize, flatten array)
-    ingredients_api[c['strDrink']] = ingredients_api[c['strDrink']].map(&:titleize)
-
+    ingredients_api[c['strDrink']] = ingredients_api[c['strDrink']].map(&:downcase)
     uniq_ingredients_api = ingredients_api.values.flatten
 
     # if new ingredient, create DB Ingredient instance
@@ -231,14 +223,23 @@ def cocktails_dataset
       cocktail_found = Cocktail.find_by(name: c['strDrink'])
       ingredient = Ingredient.find_by(name: ingredients_api[c['strDrink']][index]) # not using  uniq_ingredients_api ??
 
-      if measure.strip.include?(" ") && measure.match?(/\s/)
+
+
+
+      if measure.include?("oz")
+        quantity = measure.split(" ")[0].to_i
+        unit = "oz"
+      elsif measure.strip.include?(" ") && measure.match?(/\s/)
         quantity = measure.split(" ")[0].to_i
         unit = measure.split(" ")[-1]
       elsif !measure.strip.include?(" ") && measure.match?(/\s/)
         quantity = 1
         unit = measure
-      elsif !measure.strip.include?(" ") && !measure.match?(/\s/)
+      elsif measure.strip.include?(" ") && !measure.match?(/\s/)
         quantity = measure
+        unit = "unit"
+      elsif !measure.strip.include?(" ") && !measure.match?(/\s/)
+        quantity = 1
         unit = "unit"
       end
 
