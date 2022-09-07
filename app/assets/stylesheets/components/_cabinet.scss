@@ -52,12 +52,12 @@
 }
 
 .remover {
-  margin-left: 1rem;
-  // padding: 0.1rem;
-  border-radius: 50%;
-  border: 1px dotted $black-hb;
-  font-size: smaller;
-  color: $black-hb;
+  margin-left: 0.25rem;
+  padding-right:0.1rem;
+  border: none;
+  background-color: white;
+  font-size: large;
+  font-weight: bolder;
 }
 
 .text-orange {
