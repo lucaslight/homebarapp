@@ -9,6 +9,12 @@
                   required: true,
                   autofocus: true,
                   input_html: { autocomplete: "email" }%>
+      <%= f.input :birth_date,
+                  required: true,
+                  as: :datetime,
+                  start_year: Date.today.year - 90,
+                  end_year: Date.today.year - 18,
+                  input_html: { autocomplete: "birth_date" }%>
       <%= f.input :password,
                   required: true,
                   hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
