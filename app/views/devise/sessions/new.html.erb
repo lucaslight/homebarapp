@@ -1,8 +1,8 @@
-<div class="main-content container">
-  <h2>Log in</h2>
+<div class="main-content d-flex container">
 
 <form>
   <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <h2>Log in</h2>
   <div class="mb-3">
     <%= f.input :email,
       required: false,
@@ -17,12 +17,12 @@
   <div class="mb-3 form-check">
     <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
   </div>
-  <%= f.button :submit, "Log in" %>
+  <div class="form-actions">
+    <%= f.button :submit, "Log in" %>
+  </div>
+  <div class="form-actions ml-3">
+    <%= render "devise/shared/links" %>
+  </div>
   <% end %>
-  <%= render "devise/shared/links" %>
 </form>
-
-</div>
-<div class="main-content container">
-
 </div>
