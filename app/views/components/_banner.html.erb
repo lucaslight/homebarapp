@@ -9,7 +9,14 @@
       <div class="d-flex justify-content-between align-items-end">
         <p>Tell us what you have and we <br> will suggest the best cocktails</p>
         <div>
-          <a class="btn-flat banner-btn" href="cocktails" >Get started</a>
+          <% if user_signed_in? %>
+            <a class="btn-flat banner-btn"
+            href="cocktails" >
+            Get started
+            </a>
+          <% else %>
+          <%= link_to "Get Started", new_user_session_path, class: "btn-flat banner-btn" %>
+          <% end %>
         </div>
       </div>
     </div>
