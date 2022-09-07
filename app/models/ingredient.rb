@@ -5,5 +5,5 @@ class Ingredient < ApplicationRecord
   has_many :cabinets
   has_many :users, through: :cabinets
 
-  validates :name, presence: true
+  validates :name, presence: true, uniqueness: true
 end
