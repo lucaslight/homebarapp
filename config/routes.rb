@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   # get 'saved_cocktails/index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
+  patch "saved_coctails/:id/add", to: "cabinets#add_to_stock", as: "add_ingredient_to_cabinet_from_grocery_list"
   patch "cabinets/:id/changes", to: "cabinets#remove_from_stock", as: "change"
   post "cocktails/:id/create", to: "saved_cocktails#create_from_index", as: "saved_from_index"
 end

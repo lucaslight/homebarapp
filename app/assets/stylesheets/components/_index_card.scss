@@ -40,6 +40,8 @@
   height: 4rem;
   justify-content: center;
   p {
+    font-size: 2rem;
+    font-family: $body-font;
     margin: 0;
     padding: 6px;
   }
@@ -88,17 +90,28 @@ button {
 }
 
 .saved_cocktail_orange .index-card-stock {
-  background-color: $orange-hb;
-  color: $black-hb;
+  background-color: $orange-hb !important;
+  color: white !important;
 }
 
 .fa-circle-plus, .fa-circle-minus {
   position: absolute;
-  color: $black-hb;
   bottom: 1.5rem;
   right: 1rem;
 }
 
-.fa-circle-minus:hover, .fa-circle-plus:hover {
+.fa-circle-plus {
+  color: $black-hb;
+}
+
+.fa-circle-minus {
   color: $orange-hb;
+}
+
+.fa-circle-plus:hover {
+  color: $orange-hb;
+}
+
+.fa-circle-minus:hover {
+  color: $black-hb;
 }
