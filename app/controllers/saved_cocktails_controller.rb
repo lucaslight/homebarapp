@@ -6,6 +6,8 @@ class SavedCocktailsController < ApplicationController
     @saved_cocktails = SavedCocktail.where(user: current_user)
 
     @user_ingredients_in_stock = Cabinet.where(user: current_user, in_stock: true).to_a
+    @ingredients_in_stock = Cabinet.where(user: current_user, in_stock: true)
+    @my_ing = @ingredients_in_stock.includes(:ingredient).pluck('ingredients.name')
 
     @user_ingredients = []
     @user_ingredients_in_stock.each do |user_ingredient|
@@ -39,6 +41,8 @@ class SavedCocktailsController < ApplicationController
 
   def destroy
     SavedCocktail.find(params[:id]).destroy
-    redirect_to cocktails_path, status: :see_other
+    # if else statement for the redirection
+    # redirect_to cocktails_path, status: :see_other
+    redirect_back(fallback_location: root_path)
   end
 end

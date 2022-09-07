@@ -1,0 +1,28 @@
+<% saved_cocktails.each do |item| %>
+  <% c_ing = item.cocktail.measurements.includes(:ingredient).pluck('ingredients.name') %>
+  <% num = c_ing.count - (@my_ing & c_ing ).count %>
+  <div class="saved-cocktail-card-wrap saved_cocktail_orange">
+    <div class="saved-cocktail-header">
+      <div class="saved-cocktail-stock">
+        <p>
+          <% case %>
+            <%# raise %>
+          <% when num == 0 %>
+            <%#= 'Ready to go' %>
+            <i class="fa-solid fa-champagne-glasses fa-lg"></i>
+          <% when num == 1 %>
+            <%#= '-1' %>
+            1 <i class="fa-solid fa-basket-shopping fa-xs"></i>
+          <% when num == 2 %>
+            <%#= '-2' %>
+            2 <i class="fa-solid fa-basket-shopping fa-xs"></i>
+          <% end %>
+        </p>
+      </div>
+      <div class="saved-cocktail-name">
+        <h4><%= item.cocktail.name.titleize %></h4>
+      </div>
+          <%= button_to "", saved_cocktail_path(item), method: :delete, class:"fa-solid fa-circle-minus fa-2xl" %>
+    </div>
+  </div>
+<% end %>
