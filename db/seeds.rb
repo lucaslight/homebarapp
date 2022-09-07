@@ -27,7 +27,6 @@ puts "Database is clean."
   "Daiquiri",
   "Derby",
   "Dry Martini",
-  "Gin Fizz",
   "John Collins",
   "Manhattan",
   "Mary Pickford",
@@ -93,6 +92,9 @@ puts "Database is clean."
   "Vampiro",
   "Vesper",
   "Yellow Bird",
+  "Blue Hurricane",
+  "Michelada",
+  "Blue Lagoon",
   "Boulevardier"]
 
 def cocktails_dataset
