@@ -56,7 +56,27 @@
   // }
 }
 
+.dashboard-grocery .header {
+  display: flex;
+  justify-content: space-between;
+}
+
 .dashboard h2 {
   font-family: $headers-font;
   margin-bottom: 2rem;
 }
+
+
+.dashboard-grocery .header h2 {
+  // color: yellow;
+  // background-color: red;
+}
+
+.dashboard-grocery .header .btn-flat {
+  width: 25%;
+  height: 2.8rem;
+  font-size: 1rem;
+  text-align: center;
+}
+
+// fa-solid fa-share-nodes

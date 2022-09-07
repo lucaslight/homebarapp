@@ -5,7 +5,10 @@
   </div>
 
   <div class="dashboard-grocery">
-    <h2>Grocery list</h2>
+    <div class="header">
+      <h2>Grocery list</h2>
+      <a class="btn-flat" href="#" ><i class="fa-solid fa-share-nodes fa-xl"></i></a>
+    </div>
     <%= render "components/grocery_list", grocery_list: @grocery_list %>
   </div>
 </div>

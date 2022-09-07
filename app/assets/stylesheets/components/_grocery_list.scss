@@ -13,3 +13,27 @@
 .grocery-list-item button:hover {
   color: $orange;
 }
+
+.grocery-result {
+  font-size: x-large;
+  font-weight: bold;
+  color: $black-hb;
+  padding-top: 1rem;
+  border-top: 1px solid $black-hb;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.grocery-result .text-orange {
+  color: $orange-hb;
+  font-weight: bolder;
+  font-size:xx-large;
+}
+
+.grocery-result .btn-flat {
+  width: 25%;
+  height: 2.8rem;
+  font-size: 1rem;
+  text-align: center;
+}
