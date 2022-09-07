@@ -8,26 +8,14 @@
       <%# <button name="button" type="submit" class="btn-flat">Add ingredient</button> %>
       <h5>
         <% unless user_ingredients.nil? %>
-          <span class="text-orange">
-            <%= user_ingredients.length %>
-          </span>
+        <span class="text-orange"><%= user_ingredients.length %></span>
         <% end %>
         &nbsp Ingredients
       </h5>
       <%if @filtered_cocktails %>
-        <h5>
-          <span class="text-orange">
-            <%= @filtered_cocktails.to_a.length %>
-          </span>
-          &nbsp Cocktails Found
-        </h5>
+        <h5><span class="text-orange"><%= @filtered_cocktails.to_a.length %></span>&nbsp Cocktails Found</h5>
       <% elsif %>
-        <h5>
-          <span class="text-orange">
-            <%= @saved_cocktails.to_a.length %>
-          </span>
-          &nbsp Selected Cocktails
-        </h5>
+        <h5><span class="text-orange"><%= @saved_cocktails.to_a.length %></span>&nbsp Selected Cocktails</h5>
       <% end %>
     <%# </div> %>
   </div>
