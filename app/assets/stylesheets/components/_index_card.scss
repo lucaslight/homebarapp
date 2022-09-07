@@ -20,15 +20,19 @@
   align-items: center;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
+
 .index-card-header {
   display: grid;
   grid-template-columns: 30% 70%;
   align-items: center;
   justify-content: center;
   border-bottom: 2px solid black;
+  & :hover{
+    cursor: pointer;
+    color: $orange-hb;
+    opacity: 0.9;
+  }
 }
-
-
 
 .index-card-stock {
   display: flex;
@@ -50,11 +54,11 @@
 .index-cocktail-name {
   font-family: $headers-font;
   font-weight: 100;
+  display: flex;
   align-items: center;
+  justify-content: center;
   flex-grow: 2;
   height: 4rem;
-  display: flex;
-  padding-left: 30px;
 }
 
 .index-card-bottom {
