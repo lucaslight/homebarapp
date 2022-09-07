@@ -1,21 +1,11 @@
 <div class="dashboard">
-<div class="dashboard-saved-cocktails">
-    <h3>Your selected cocktails:</h3>
-    <ul class="saved-cocktails-list">
-      <% saved_cocktails.each do |saved_cocktail| %>
-        <li class="saved-cocktails-list-item"><%= saved_cocktail.cocktail.name.titleize %></li>
-      <% end %>
-    </ul>
+  <div class="dashboard-saved-cocktails">
+    <h2>Selected cocktails</h2>
+    <%= render "components/saved_cocktail_card", saved_cocktails: @saved_cocktails %>
   </div>
+
   <div class="dashboard-grocery">
-    <h3>Your missing ingredients:</h3>
-    <ul class="grocery-list">
-      <% grocery_list.each do |item| %>
-        <li class="grocery-list-item">
-          <%= item.name.titleize %>
-          <%= button_to "", add_ingredient_to_cabinet_from_grocery_list_path(item.id), method: :patch, class: "fa-solid fa-square-plus fa-xl" %>
-        </li>
-      <% end %>
-    </ul>
+    <h2>Grocery list</h2>
+    <%= render "components/grocery_list", grocery_list: @grocery_list %>
   </div>
 </div>

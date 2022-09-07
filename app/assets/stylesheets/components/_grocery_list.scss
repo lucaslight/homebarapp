@@ -1,0 +1,15 @@
+.grocery-list-item {
+  font-size: x-large;
+  color: $black-hb;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.grocery-list-item button {
+  color: $black-hb;
+}
+
+.grocery-list-item button:hover {
+  color: $orange;
+}

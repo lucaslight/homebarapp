@@ -1,5 +1,6 @@
 <div class="main-content container">
   <%# <h1>Selected Cocktails</h1> %>
+  <% my_ing = @ingredients_in_stock.includes(:ingredient).pluck('ingredients.name') %>
    <%= render "components/cabinet", user_ingredients: @user_ingredients_in_stock %>
    <%= render "components/dashboard", grocery_list: @grocery_list, saved_cocktails: @saved_cocktails %>
 </div>
