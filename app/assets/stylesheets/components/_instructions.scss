@@ -1,40 +1,112 @@
-.instructions{
-  padding: 1rem;
-  display: inline-flex;
-  flex-direction: row;
+.instructions {
+  margin-top: 5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+}
+
+.instructions .step {
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  flex: 1;
+}
 
+.instructions .step .step-header {
+  color: $black-hb;
+  font-weight: bolder;
   display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1;
 }
-.info{
-  width: auto;
-  max-width: 650px;
-  margin-right: 2rem;
-}
-.img-instructions{
-  // transform: rotate(-2deg);
-  width: 160px;
-  height: 200px;
-  // border: 3px black solid;
-  margin: 0 1rem;
-}
-.img-instructions2{
-  // transform: rotate(2deg);
-  width: 160px;
-  height: 200px;
-  // border: 3px black solid;
-  margin: 0 1rem;
-}
-.images{
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
 
+.instructions .step .step-header h3 {
+  font-family: $headers-font;
+  font-weight: 800;
 }
-.img_size{
-  width: 160px;
 
+.instructions .step .step-header .step-number-circle {
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  text-align: center;
+  background-color: $red-instructions-hb;
+  border: 2px solid $black-hb;
+  color: white;
+  margin-right: 1rem;
 }
+
+
+.step-details {
+  text-align: justify;
+  text-align-last: justify;
+  padding: 3rem;
+}
+
+
+.img_size {
+  width: 160px;
+  margin-top: -1rem;
+  margin-bottom: -3rem;
+}
+
+
+.text-red-strong {
+  color:$red-instructions-hb;
+  font-weight: bolder;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+// .instructions{
+//   padding: 1rem;
+//   display: inline-flex;
+//   flex-direction: row;
+//   align-items: center;
+//   justify-content: center;
+
+//   display: flex;
+//   justify-content: space-around;
+//   flex-wrap: wrap;
+// }
+// .info{
+//   width: auto;
+//   max-width: 650px;
+//   margin-right: 2rem;
+// }
+// .img-instructions{
+//   // transform: rotate(-2deg);
+//   width: 160px;
+//   height: 200px;
+//   // border: 3px black solid;
+//   margin: 0 1rem;
+// }
+// .img-instructions2{
+//   // transform: rotate(2deg);
+//   width: 160px;
+//   height: 200px;
+//   // border: 3px black solid;
+//   margin: 0 1rem;
+// }
+// .images{
+//   display: flex;
+//   justify-content: space-around;
+//   flex-wrap: wrap;
+
+// }
+// .img_size{
+//   width: 160px;
+
+// }
