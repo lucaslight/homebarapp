@@ -143,12 +143,26 @@
                           <% end %>
                     </div>
                   <% all_ingredient_names_of_found_cocktails = [] %>
+                  <% all_not_in_stock_ingredient_names_of_found_cocktails = [] %>
+                  <% all_in_stock_ingredient_names_of_found_cocktails = [] %>
                   <div class="index-card-bottom">
                     <%# <h2> <%= link_to cocktail.name.titleize, cocktail_path(cocktail.id) %>
                     <% cocktail.measurements.each do |measurement| %>
-                      <% all_ingredient_names_of_found_cocktails << @ingredients.find(measurement.ingredient_id).name.titleize %>
+                      <% if @user_ingredients_in_stock.pluck(:ingredient_id).include?(@ingredients.find(measurement.ingredient_id).id)%> <%# in stock %>
+                        <% all_in_stock_ingredient_names_of_found_cocktails << @ingredients.find(measurement.ingredient_id).name.titleize %>
+                      <%# raise %>
+                      <% elsif !@user_ingredients_in_stock.pluck(:ingredient_id).include?(@ingredients.find(measurement.ingredient_id).id)%> <%# NOT in stock %>
+                        <% all_not_in_stock_ingredient_names_of_found_cocktails << @ingredients.find(measurement.ingredient_id).name.titleize %>
+                      <%# raise %>
+                      <% end %>
+                        <% all_ingredient_names_of_found_cocktails << @ingredients.find(measurement.ingredient_id).name.titleize %>
                     <% end %>
-                    <p><%= all_ingredient_names_of_found_cocktails.to_sentence %></p>
+                    <p>
+                      <span class="missing-ingredient">
+                        <%= all_not_in_stock_ingredient_names_of_found_cocktails.to_sentence %>
+                      </span>
+                      <%= all_in_stock_ingredient_names_of_found_cocktails.to_sentence %>
+                    </p>
                     <%# ADD TO MY BAR BUTTON DISPLAY LOGIC %>
                     <% saved_cocktail = SavedCocktail.find_by(user_id: current_user.id, cocktail_id: cocktail.id)  %>
                     <% if saved_cocktail %>
