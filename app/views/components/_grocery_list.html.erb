@@ -8,7 +8,13 @@
 </ul>
 <br>
 <div class="grocery-result">
-  <p><span class="text-orange"><%= grocery_list.length %></span>&nbsp ingredients to buy</p>
+  <p><span class="text-orange"><%= grocery_list.length %></span>&nbsp
+    <% if grocery_list.length == 1 %>
+      ingredient to buy
+    <% else %>
+      ingredients to buy
+    <% end %>
+  </p>
 </div>
 <div class="share">
   <a class="btn-flat btn-large" href="/">Share this!</a>
