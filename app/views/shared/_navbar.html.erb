@@ -16,10 +16,18 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item active">
-            <%= link_to "Cocktails", cocktails_path, class: "nav-link" %>
+            <% if current_page?(cocktails_path) %>
+              <strong><%= link_to "Cocktails", cocktails_path, class: "nav-link" %></strong>
+            <% else %>
+              <%= link_to "Cocktails", cocktails_path, class: "nav-link" %>
+            <% end %>
           </li>
           <li class="nav-item active">
-            <%= link_to "My Bar", saved_cocktails_path, class: "nav-link" %>
+            <% if current_page?(saved_cocktails_path) %>
+              <strong><%= link_to "My Bar", cocktails_path, class: "nav-link" %></strong>
+            <% else %>
+              <%= link_to "My Bar", saved_cocktails_path, class: "nav-link" %>
+            <% end %>
           </li>
           <li class="nav-item active">
             <%= button_to "Log Out", destroy_user_session_path, class: "nav-link logoutbutton", method: :delete %>
