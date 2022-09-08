@@ -125,6 +125,9 @@ def cocktails_dataset
   end
   cocktails_array = cocktails_array.flatten
 
+  # delete_it_bald = cocktails_array.find_by(name:"Smashed Watermelon Margarita")
+  # cocktails_array.pluck(name:"Smashed Watermelon Margarita")
+
   cocktails_array.each do |c|
     var = Cocktail.create!(
       name: c['strDrink'],
