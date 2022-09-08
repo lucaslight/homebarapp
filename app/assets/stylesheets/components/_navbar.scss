@@ -39,8 +39,12 @@ h1 {
   color: $black-hb;
   opacity: 1;
   margin-bottom: 0;
+  margin-left: 2rem;
 }
 
 .navbar-brand h1:hover {
   color: $orange-hb;
+}
+.collapse{
+  margin-right: 2rem;
 }

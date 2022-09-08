@@ -15,6 +15,7 @@
   & .fab{
     margin: 0 .5rem;
   }
+  padding-left: 2rem;
 }
 .footer-authors h6 {
   // color: #252422 0.4;
@@ -39,4 +40,7 @@
 .footer-authors .fas:hover {
   // opacity: 1;
   color: $orange-hb;
+}
+.footer-authors{
+  margin-right: 2rem;
 }
