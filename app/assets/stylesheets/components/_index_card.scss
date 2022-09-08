@@ -54,17 +54,24 @@
   justify-content: center;
   flex-grow: 2;
   height: 4rem;
+  padding: 0 .5rem;
    & :hover{
     cursor: pointer;
     color: $orange-hb;
     opacity: 0.9;
   }
+  h4{
+    margin-bottom: 0;
+  }
 }
 
 .index-card-bottom {
-  min-height: 6.5rem;
+  min-height: 6rem;
   padding: .5rem 1rem;
   margin-right: 2.5rem;
+  p {
+    margin-bottom: 0;
+  }
 }
 
 .index-card-ingredients {
