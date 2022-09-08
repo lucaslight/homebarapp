@@ -2,5 +2,4 @@
 meta_product_name: "HomeBar app"
 meta_title: "HomeBar app - Discover your cocktails potencial"
 meta_description: "HomeBar app - tell us what ingredients you have and we coach you to the cocktails you can make."
-meta_image: "the-sky-wave-dry-martini-recipe-1920x1080.jpg" # should exist in `app/assets/images/`
-
+meta_image: "BannerImageFB.jpg" # should exist in `app/assets/images/`
