@@ -27,7 +27,7 @@
 .nav-link {
   font-family: $subheading-font;
   color: $black-hb;
-  opacity: 0.4;
+  // opacity: 0.4;
 }
 
 .nav-link:hover {
@@ -50,4 +50,21 @@ h1 {
 }
 .logoutbutton{
   background-color: transparent;
+}
+
+.navbar-nav .me-auto {
+  position: relative;
+}
+
+.selected-cocktails-number {
+  position: absolute;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  color: white;
+  background-color: $orange-hb;
+  font-weight: bolder;
+  text-align: center;
+  margin-left: 147px;
+  margin-top: 21px;
 }

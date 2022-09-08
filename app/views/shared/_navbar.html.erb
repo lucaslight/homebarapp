@@ -15,6 +15,9 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
+          <% if SavedCocktail.count > 0 %>
+            <p class="selected-cocktails-number"><%= SavedCocktail.count %></p>
+          <% end %>
           <li class="nav-item active">
             <% if current_page?(cocktails_path) %>
               <strong><%= link_to "Cocktails", cocktails_path, class: "nav-link" %></strong>
