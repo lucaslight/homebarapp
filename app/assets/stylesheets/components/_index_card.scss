@@ -1,6 +1,6 @@
 .index-card-wrap {
   position: relative;
-  width: 22rem;
+  min-width: 22rem;
   // height: 10rem;
   border: 2px solid black;
   border-radius: 2px;
@@ -62,8 +62,9 @@
 }
 
 .index-card-bottom {
-  height: 5rem;
-  padding: 5px;
+  min-height: 6.5rem;
+  padding: .5rem 1rem;
+  margin-right: 2.5rem;
 }
 
 .index-card-ingredients {
