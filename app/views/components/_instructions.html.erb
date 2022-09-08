@@ -1,33 +1,28 @@
+<%# <h2>Discover your own bar at home</h2> %>
 <div class="instructions">
-  <div class="info">
-    <h2>
-      Discovering your very own bar at home
-    </h2>
-    <ul>
-      <li>
-        Tell us which ingredients you have and we will show you the cocktails you can make
-      </li>
-      <li>
-        Discover which cocktails are missing just one or two ingredient and <strong>select your favorites</strong>
-      </li>
-      <li>
-        Go shopping and then check the recipes to create your cocktails
-      </li>
-    </ul>
-    <%# <p>
-      HomeBar works with you to show you all of the cocktails you can make at home with the ingredients you already have: and by showing you which other cocktails are at your reach with one or two ingredients more!
-
-    </p> %>
+  <div class="step">
+    <div class="step-header">
+      <h2 class="step-number-circle">1</h2>
+      <h3>Add Ingredients</h3>
+    </div>
+    <%= image_tag 'HomeBar_1.png',class:"img_size" %>
+    <p class="step-details">Tell us <span class="text-red-strong">your ingredients</span>, we will show you the cocktails you can make</p>
   </div>
-  <%# <div class="images"> %>
-    <div class="img-instructions">
-      <%= image_tag 'HomeBar_1.png',class:"img_size" %>
+  <div class="step">
+    <div class="step-header">
+      <h2 class="step-number-circle">2</h2>
+      <h3>Cocktail Potential</h3>
     </div>
-    <div class="img-instructions img-instructions">
-      <%= image_tag 'HomeBar_2.png',class:"img_size" %>
+    <%= image_tag 'HomeBar_2.png',class:"img_size" %>
+    <p class="step-details">Discover the cocktails missing one or two ingredients and <span class="text-red-strong">select favorites</span></p>
+  </div>
+  <div class="step">
+    <div class="step-header">
+      <h2 class="step-number-circle">3</h2>
+      <h3>Master Mixology</h3>
     </div>
-    <div class="img-instructions">
-      <%= image_tag 'HomeBar_3.png', class:"img_size" %>
+    <%= image_tag 'HomeBar_3.png', class:"img_size" %>
+    <p class="step-details">Get a grocery list, go shopping and, with our recipes, <span class="text-red-strong">create your cocktails</span></p>
     </div>
-  <%# </div> %>
+  </div>
 </div>
