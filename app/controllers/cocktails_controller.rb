@@ -52,7 +52,7 @@ class CocktailsController < ApplicationController
       if @idk && @idk.in_stock == false
         @idk.in_stock = true
         @idk.save!
-      elsif @idk == nil
+      elsif @idk == nil && search_ingr != nil
         Cabinet.create!(ingredient: search_ingr, user: current_user)
       end
     end
