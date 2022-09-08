@@ -2,3 +2,29 @@
 @import "home";
 @import "saved_cocktails";
 
+.index h1 {
+  font-family: $headers-font;
+  margin-bottom: 1rem;
+  // margin-left: 2rem;
+}
+
+.index .cards {
+  display: grid;
+  row-gap: 1.5rem;
+  column-gap: 4.5rem;
+}
+
+.index-card-wrap {
+  position: relative;
+  width: 24rem;
+}
+
+
+.index-cocktail-name {
+  justify-content: flex-start;
+  margin-left: 1rem;
+}
+
+.index h4 {
+  margin-bottom: 4px;
+}
