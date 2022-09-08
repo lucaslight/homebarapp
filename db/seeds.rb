@@ -54,6 +54,7 @@ puts "Database is clean."
   "Cuba Libre",
   "French 75",
   "French Connection",
+  "Gin Tonic"
   "Godfather",
   "Godmother",
   "Golden Dream",

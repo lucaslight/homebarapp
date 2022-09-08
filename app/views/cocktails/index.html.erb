@@ -33,12 +33,12 @@
                   </div>
                     <div class="modal-bottom" style="visibility: hidden; height: 0px;">
                         <p><strong>Method: </strong><%= cocktail.instructions %></p>
-                          <% if cocktail.alcoholic == true %>
+                        <% if cocktail.alcoholic == true %>
                           <p><i>Contains alcohol</i></p>
-                          <% elsif %>
+                        <% elsif %>
                           <br>
                           <p><i>Does not contain alcohol</i></p>
-                          <% end %>
+                        <% end %>
                     </div>
                   <% all_ingredient_names_of_found_cocktails = [] %>
                   <div class="index-card-bottom">
@@ -94,7 +94,6 @@
       </div>
     <% else %>
       <h1>Make these cocktails</h1>
-
       <div class="index g-0">
         <% if @filtered_cocktails %>
           <div class="cards">
