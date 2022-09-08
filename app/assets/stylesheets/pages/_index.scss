@@ -9,9 +9,14 @@
 }
 
 .index .cards {
-  display: flex;
-  padding: 0 2rem;
+  display: grid;
   row-gap: 1.5rem;
+  column-gap: 4.5rem;
+}
+
+.index-card-wrap {
+  position: relative;
+  width: 24rem;
 }
 
 

@@ -54,7 +54,7 @@ puts "Database is clean."
   "Cuba Libre",
   "French 75",
   "French Connection",
-  "Gin Tonic"
+  "Gin Tonic",
   "Godfather",
   "Godmother",
   "Golden Dream",
@@ -66,7 +66,6 @@ puts "Database is clean."
   "Kir",
   "Long Island Iced Tea",
   "Mai Tai",
-  "Margarita",
   "Mimosa",
   "Mint Julep",
   "Mojito",
@@ -124,9 +123,6 @@ def cocktails_dataset
     cocktails_array << JSON.parse(cocktails)["drinks"]
   end
   cocktails_array = cocktails_array.flatten
-
-  # delete_it_bald = cocktails_array.find_by(name:"Smashed Watermelon Margarita")
-  # cocktails_array.pluck(name:"Smashed Watermelon Margarita")
 
   cocktails_array.each do |c|
     var = Cocktail.create!(
