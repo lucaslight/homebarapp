@@ -15,9 +15,11 @@
   // background: rgba(255, 255, 255, 0.5);
   border-radius: 16px;
   // box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(2px);
+  // backdrop-filter: blur(2px);
   // border: 1px solid rgba(255, 255, 255, 0.3);
 }
+
+
 
 .banner-grid {
   display: grid;
@@ -30,8 +32,10 @@
   margin: 0;
   color: $orange-hb;
   text-shadow: 1px 1px 3px rgba(0,0,0,80);
-  font-size: 42px;
+  font-size: 52px;
   font-weight: bold;
+  margin-bottom: 42px;
+  // backdrop-filter: blur(2px);
 }
 
 .banner p {
