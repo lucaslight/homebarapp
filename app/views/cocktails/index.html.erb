@@ -1,6 +1,6 @@
 <div class="main-content container">
 
-<%= render "components/cabinet", user_ingredients: @user_ingredients_in_stock, found_cocktails: @all_found_cocktails %>
+  <%= render "components/cabinet", user_ingredients: @user_ingredients_in_stock, found_cocktails: @all_found_cocktails %>
 
   <div class="index g-0">
     <% if @all_found_cocktails.empty? %>
@@ -93,7 +93,7 @@
           </div>
       </div>
     <% else %>
-      <h1>Make these cocktails</h1>
+      <h1>Cocktails I can make</h1>
       <div class="index g-0">
         <% if @filtered_cocktails %>
           <div class="cards">
