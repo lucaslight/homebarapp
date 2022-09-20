@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <h1>Cocktails#show</h1>
 <div class="container" id="myModal-<%= @cocktail.id %>">
 <div class="show-card-wrap modal-content">
@@ -11,7 +10,6 @@
         <li><%= measurement.quantity %> <%= measurement.unit %> of <%= @ingredients.find(measurement.ingredient_id).name %></li>
         <% end %>
       </ul>
-=======
 <div class="main-content container">
   <h1>Cocktails#show</h1>
   <div class="container">
@@ -27,22 +25,8 @@
         </ul>
       </div>
       <div class="show-card-photo" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://dosmaderas.com/wp-content/uploads/2021/10/Dos-Maderas-rum-Cocktail-Espresso-Martini-HERO-6.jpg)"></div>
->>>>>>> 468541ff7a0cc0c045446772fa686f68061620e4
     </div>
 
-<<<<<<< HEAD
-  <div class="show-card-bottom">
-    <div class="show-card-method">
-    <p><strong>Method: </strong><%= @cocktail.instructions %></p>
-    </div>
-    <div class="show-card-footer">
-        <% if @cocktail.alcoholic == true %>
-        <p><i>Contains alcohol</i></p>
-        <% elsif %>
-        <br>
-        <p><i>Does not contain alcohol</i></p>
-        <% end %>
-=======
     <div class="show-card-bottom">
       <div class="show-card-method">
       <p><strong>Method:</strong><%= @cocktail.instructions %></p>
@@ -55,7 +39,6 @@
           <p><i>Does not contain alcohol</i></p>
           <% end %>
       </div>
->>>>>>> 468541ff7a0cc0c045446772fa686f68061620e4
     </div>
   </div>
 
