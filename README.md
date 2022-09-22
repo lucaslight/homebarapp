@@ -74,10 +74,6 @@ It has potential to become:
   - costs
   - dish cards and menu
     - allergens and diet restrictions included
-- a food/menu management tool
-  - costs
-  - dish cards and menu
-    - allergens and diet restrictions included
 
 - a liquor shop app with connection to actual shop `||` in-app grocery purchase
   - It could include:
