@@ -1,42 +1,44 @@
 <div class="cabinet">
 
   <div class="search-info">
+
     <div class="search-bar">
       <%= render "components/searchform" %>
     </div>
-    <%# <div class="search-results"> %>
-      <%# <button name="button" type="submit" class="btn-flat">Add ingredient</button> %>
+
+    <h5><strong>
+      <% unless user_ingredients.nil? %>
+      <span class="text-orange"><%= user_ingredients.length %></span>
+      <% end %>
+      &nbsp
+      <% if user_ingredients.length == 1 %>
+        Ingredient
+      <% else %>
+        Ingredients
+      <% end %>
+    </strong></h5>
+
+    <% if @filtered_cocktails %>
       <h5><strong>
-        <% unless user_ingredients.nil? %>
-        <span class="text-orange"><%= user_ingredients.length %></span>
-        <% end %>
-        &nbsp
-        <% if user_ingredients.length == 1 %>
-          Ingredient
+        <span class="text-orange"><%= @filtered_cocktails.to_a.length %></span>&nbsp
+        <% if @filtered_cocktails.to_a.length == 1 %>
+          Cocktail Found
         <% else %>
-          Ingredients
+          Cocktails Found
         <% end %>
       </strong></h5>
-      <%if @filtered_cocktails %>
-        <h5><strong>
-          <span class="text-orange"><%= @filtered_cocktails.to_a.length %></span>&nbsp
-          <% if @filtered_cocktails.to_a.length == 1 %>
-            Cocktail Found
-          <% else %>
-            Cocktails Found
-          <% end %>
-        </strong></h5>
-      <% elsif %>
-        <h5><strong>
-          <span class="text-orange"><%= @saved_cocktails.to_a.length %></span>&nbsp
-          <% if @saved_cocktails.to_a.length == 1 %>
-            Selected Cocktail
-          <% else %>
-            Selected Cocktails
-          <% end %>
-        </strong></h5>
-      <% end %>
-    <%# </div> %>
+
+    <% elsif %>
+      <h5><strong>
+        <span class="text-orange"><%= @saved_cocktails.to_a.length %></span>&nbsp
+        <% if @saved_cocktails.to_a.length == 1 %>
+          Selected Cocktail
+        <% else %>
+          Selected Cocktails
+        <% end %>
+      </strong></h5>
+    <% end %>
+
   </div>
 
   <div class="cabinet-ingredients">
@@ -44,7 +46,10 @@
       <% user_ingredients.each do |item| %>
         <div class="btn-ghost ingredient d-flex align-items-center">
           <%= item.ingredient.name.titleize %>
-          <%= button_to "X", change_path(item.id), method: :patch, class: "remover" %>
+          <%= button_to raw("<i class=\"fa-regular fa-square-xmark\"></i>"),
+            change_path(item.id),
+            method: :patch,
+            class: "remover" %>
         </div>
       <% end %>
     <% end %>

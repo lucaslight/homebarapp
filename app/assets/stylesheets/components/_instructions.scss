@@ -3,7 +3,6 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-
 }
 
 .instructions .step {
@@ -40,9 +39,9 @@
 
 
 .step-details {
-  text-align: justify;
-  text-align-last: justify;
+  text-align: center;
   padding: 3rem;
+  margin-left: 14px;
 }
 
 
