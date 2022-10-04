@@ -1,7 +1,5 @@
 .index-card-wrap {
   position: relative;
-  min-width: 22rem;
-  // height: 10rem;
   border: 2px solid black;
   border-radius: 2px;
   background: #FFFFFF;
@@ -129,4 +127,8 @@ button {
 }
 .missing-ingredient{
   color: $red-hb;
+}
+
+.index h1 {
+  margin-left: 0;
 }
