@@ -1,6 +1,6 @@
 .saved-cocktail-card-wrap {
   position: relative;
-  width: 30rem;
+  // width: 30rem;
   // height: 10rem;
   border: 2px solid $orange-hb;
   border-radius: 2px;
@@ -16,8 +16,6 @@
   display: grid;
   grid-template-columns: 6.6rem 15.4rem 8rem;
   align-items: center;
-  justify-content: center;
-  // border-bottom: 2px solid $orange-hb;
 }
 
 .saved-cocktail-stock {
