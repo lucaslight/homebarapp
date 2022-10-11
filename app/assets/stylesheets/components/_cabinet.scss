@@ -12,6 +12,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 2rem;
 }
 
 .search-bar {
@@ -48,8 +49,25 @@
   color:inherit;
 }
 
-.fa-xmark {
-  padding-left: 1rem;
+// Small devices (up to 767px)
+@media (max-width: 767px) {
+  .search-info {
+    display: inline;
+    text-align: center;
+    padding-bottom: 0;
+  }
+
+  .search-bar {
+    width: 100%;
+  }
+
+  .cabinet-ingredients {
+  padding: 0rem 1rem 1rem 1rem;
+  }
+}
+
+.fa-square-minus {
+  color: $black-hb;
 }
 
 .remover {

@@ -25,7 +25,9 @@
       <div class="saved-cocktail-name">
         <h4><%= item.cocktail.name.titleize %></h4>
       </div>
-          <%= button_to "", saved_cocktail_path(item), method: :delete, class:"fa-solid fa-circle-minus fa-2xl" %>
+      <div>
+        <%= button_to "", saved_cocktail_path(item), method: :delete, class:"fa-solid fa-circle-minus fa-2xl saved-cocktail-icon" %>
+      </div>
     </div>
   </div>
 <% end %>
