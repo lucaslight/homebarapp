@@ -74,3 +74,11 @@
 }
 
 // fa-solid fa-share-nodes
+
+
+// Small devices (up to 767px)
+@media (max-width: 767px) {
+  .dashboard {
+    gap: 1rem;
+  }
+}
