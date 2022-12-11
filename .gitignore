@@ -32,3 +32,4 @@
 
 # Ignore sensitive info (adrienne's API key) in .env
 /.env
+
