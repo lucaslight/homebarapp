@@ -1,96 +1,101 @@
 <div class="main-content container">
-
   <%= render "components/cabinet", user_ingredients: @user_ingredients_in_stock, found_cocktails: @all_found_cocktails %>
-
   <div class="index g-0">
     <% if @all_found_cocktails.empty? %>
-      <div><h1>All our cocktails</h1></div>
+      <div><h1>All our cocktails</h1>
+      </div>
       <div class="cards">
-
         <% @cocktails.each do |cocktail| %>
-        <%# LOGIC for saved cocktails display %>
-              <% classes = {  normal: '' } %>
-              <% @saved_cocktails.each do |item| %>
-                <% if item.cocktail_id == cocktail.id %>
-                  <%# <% @custom_class = "saved_cocktail_orange" %>
-                  <% classes[cocktail.id] = "saved_cocktail_orange" %>
-                <% end %>
+          <%# LOGIC for saved cocktails display %>
+          <% classes = {  normal: '' } %>
+          <% @saved_cocktails.each do |item| %>
+            <% if item.cocktail_id == cocktail.id %>
+              <%# <% @custom_class = "saved_cocktail_orange" %>
+              <% classes[cocktail.id] = "saved_cocktail_orange" %>
+            <% end %>
+          <% end %>
+          <div class="index-card-wrap <%= classes[cocktail.id] %>" id="myBtn-<%= cocktail.id %>">
+            <div class="index-card-header">
+              <div class="index-card-stock">
+                <p>
+                  <i class="fa-solid fas fa-martini-glass-empty"></i>
+                </p>
+              </div>
+              <div class="index-cocktail-name"><h4><%= cocktail.name.titleize %></h4></div>
+                <ul class="index-measurements" style="visibility: hidden; height: 0px;">
+                  <p class="text-head">
+                    <strong>Ingredients</strong>
+                  </p>
+                  <% cocktail.measurements.each do |measurement| %>
+                    <li><%= measurement.quantity %> <%= measurement.unit %> of <%= @ingredients.find(measurement.ingredient_id).name %></li>
+                  <% end %>
+                </ul>
+              </div>
+              <div class="modal-bottom" style="visibility: hidden; height: 0px;">
+                  <p>
+                    <strong>Method: </strong><%= cocktail.instructions %>
+                  </p>
+                  <% if cocktail.alcoholic == true %>
+                    <p><i>Contains alcohol</i></p>
+                  <% elsif %>
+                    <br>
+                    <p><i>Does not contain alcohol</i></p>
+                  <% end %>
+              </div>
+              <% all_ingredient_names_of_found_cocktails = [] %>
+              <div class="index-card-bottom">
+              <% cocktail.measurements.each do |measurement| %>
+                <% all_ingredient_names_of_found_cocktails << @ingredients.find(measurement.ingredient_id).name.titleize %>
               <% end %>
-              <div class="index-card-wrap <%= classes[cocktail.id] %>" id="myBtn-<%= cocktail.id %>">
-                  <div class="index-card-header">
-                    <div class="index-card-stock">
-                    <p>
-                      <i class="fa-solid fas fa-martini-glass-empty"></i>
-                    </p>
-                    </div>
-                    <div class="index-cocktail-name"><h4><%= cocktail.name.titleize %></h4></div>
-                      <ul class="index-measurements" style="visibility: hidden; height: 0px;">
-                        <p class="text-head"><strong>Ingredients</strong></p>
-                        <% cocktail.measurements.each do |measurement| %>
+              <p>
+                <%= all_ingredient_names_of_found_cocktails.to_sentence %>
+              </p>
+              <%# ADD TO MY BAR BUTTON DISPLAY LOGIC %>
+              <% saved_cocktail = SavedCocktail.find_by(user_id: current_user.id, cocktail_id: cocktail.id)  %>
+              <% if saved_cocktail %>
+                <%= button_to "", saved_cocktail_path(saved_cocktail), method: :delete, class:"fa-solid fa-circle-minus fa-2xl" %>
+              <% else %>
+                <%= button_to "", saved_from_index_path(cocktail.id), method: :post, class:"fa-solid fa-circle-plus fa-2xl" %>
+              <% end %>
+              </div>
+            </div>
+            <%# Modal, non-displayed, which is the Show Card %>
+            <div class="modal" id="myModal-<%= cocktail.id %>">
+              <div class="show-card-wrap modal-content">
+                <div class="show-cocktail-name">
+                  <h4><%= cocktail.name.titleize %></h4>
+                </div>
+                <div class="show-card-header">
+                  <div class="show-card-ingredients">
+                    <ul>
+                      <p class="text-head"><strong>Ingredients</strong></p>
+                      <% cocktail.measurements.each do |measurement| %>
                         <li><%= measurement.quantity %> <%= measurement.unit %> of <%= @ingredients.find(measurement.ingredient_id).name %></li>
-                        <% end %>
-                      </ul>
+                      <% end %>
+                    </ul>
                   </div>
-                    <div class="modal-bottom" style="visibility: hidden; height: 0px;">
-                        <p><strong>Method: </strong><%= cocktail.instructions %></p>
-                        <% if cocktail.alcoholic == true %>
-                          <p><i>Contains alcohol</i></p>
-                        <% elsif %>
-                          <br>
-                          <p><i>Does not contain alcohol</i></p>
-                        <% end %>
-                    </div>
-                  <% all_ingredient_names_of_found_cocktails = [] %>
-                  <div class="index-card-bottom">
-                    <%# <h2> <%= link_to cocktail.name.titleize, cocktail_path(cocktail.id) %>
-                    <% cocktail.measurements.each do |measurement| %>
-                      <% all_ingredient_names_of_found_cocktails << @ingredients.find(measurement.ingredient_id).name.titleize %>
-                    <% end %>
-                    <p><%= all_ingredient_names_of_found_cocktails.to_sentence %></p>
-                    <%# ADD TO MY BAR BUTTON DISPLAY LOGIC %>
-                    <% saved_cocktail = SavedCocktail.find_by(user_id: current_user.id, cocktail_id: cocktail.id)  %>
-                    <% if saved_cocktail %>
-                      <%= button_to "", saved_cocktail_path(saved_cocktail), method: :delete, class:"fa-solid fa-circle-minus fa-2xl" %>
-                    <% else %>
-                      <%= button_to "", saved_from_index_path(cocktail.id), method: :post, class:"fa-solid fa-circle-plus fa-2xl" %>
-                    <% end %>
+                  <div class="show-card-photo" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cocktail.image %>)">
                   </div>
                 </div>
-
-              <%# Modal, non-displayed, which is the Show Card %>
-              <div class="modal" id="myModal-<%= cocktail.id %>">
-                <div class="show-card-wrap modal-content">
-                    <div class="show-cocktail-name"><h4><%= cocktail.name.titleize %></h4></div>
-                  <div class="show-card-header">
-                    <div class="show-card-ingredients">
-                      <ul>
-                        <p class="text-head"><strong>Ingredients</strong></p>
-                        <% cocktail.measurements.each do |measurement| %>
-                        <li><%= measurement.quantity %> <%= measurement.unit %> of <%= @ingredients.find(measurement.ingredient_id).name %></li>
-                        <% end %>
-                      </ul>
-                    </div>
-                    <div class="show-card-photo" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cocktail.image %>)">
-                    </div>
-                  </div>
                 <div class="show-card-bottom">
                   <div class="show-card-method">
-                    <p><strong>Method: </strong><%= cocktail.instructions %></p>
+                    <p>
+                      <strong>Method: </strong><%= cocktail.instructions %>
+                    </p>
                   </div>
                   <div class="show-card-footer">
-                      <% if cocktail.alcoholic == true %>
+                    <% if cocktail.alcoholic == true %>
                       <p><i>Contains alcohol</i></p>
-                      <% elsif %>
+                    <% elsif %>
                       <br>
                       <p><i>Does not contain alcohol</i></p>
-                      <% end %>
+                    <% end %>
                   </div>
                 </div>
               </div>
-
-              </div>
-            <% end %>
+            </div>
           </div>
+        <% end %>
       </div>
     <% else %>
       <h1>Cocktails I can make</h1>
@@ -124,43 +129,44 @@
                         <% end %>
                       </p>
                     </div>
-                    <div class="index-cocktail-name"><h4><%= cocktail.name.titleize %></h4></div>
-                      <ul class="index-measurements" style="visibility: hidden; height: 0px;">
-                        <p class="text-head"><strong>Ingredients</strong></p>
-                        <% cocktail.measurements.each do |measurement| %>
-                        <li><%= measurement.quantity %> <%= measurement.unit %> of <%= @ingredients.find(measurement.ingredient_id).name %></li>
-                        <% end %>
-                      </ul>
-                  </div>
-                    <div class="modal-bottom" style="visibility: hidden; height: 0px;">
-                        <p><strong>Method: </strong><%= cocktail.instructions %></p>
-                          <% if cocktail.alcoholic == true %>
-                          <p><i>Contains alcohol</i></p>
-                          <% elsif %>
-                          <br>
-                          <p><i>Does not contain alcohol</i></p>
-                          <% end %>
+                    <div class="index-cocktail-name">
+                      <h4><%= cocktail.name.titleize %></h4>
                     </div>
-                  <% all_ingredient_names_of_found_cocktails = [] %>
-                  <% all_not_in_stock_ingredient_names_of_found_cocktails = [] %>
-                  <% all_in_stock_ingredient_names_of_found_cocktails = [] %>
-                  <div class="index-card-bottom">
-                    <%# <h2> <%= link_to cocktail.name.titleize, cocktail_path(cocktail.id) %>
-                    <% cocktail.measurements.each do |measurement| %>
-                      <% if @user_ingredients_in_stock.pluck(:ingredient_id).include?(@ingredients.find(measurement.ingredient_id).id)%> <%# in stock %>
-                        <% all_in_stock_ingredient_names_of_found_cocktails << @ingredients.find(measurement.ingredient_id).name.titleize %>
-                      <%# raise %>
-                      <% elsif !@user_ingredients_in_stock.pluck(:ingredient_id).include?(@ingredients.find(measurement.ingredient_id).id)%> <%# NOT in stock %>
-                        <% all_not_in_stock_ingredient_names_of_found_cocktails << @ingredients.find(measurement.ingredient_id).name.titleize %>
-                      <%# raise %>
+                    <ul class="index-measurements" style="visibility: hidden; height: 0px;">
+                      <p class="text-head">
+                        <strong>Ingredients</strong>
+                      </p>
+                      <% cocktail.measurements.each do |measurement| %>
+                        <li><%= measurement.quantity %> <%= measurement.unit %> of <%= @ingredients.find(measurement.ingredient_id).name %></li>
                       <% end %>
-                        <% all_ingredient_names_of_found_cocktails << @ingredients.find(measurement.ingredient_id).name.titleize %>
+                    </ul>
+                  </div>
+                  <div class="modal-bottom" style="visibility: hidden; height: 0px;">
+                    <p>
+                      <strong>Method: </strong><%= cocktail.instructions %>
+                    </p>
+                    <% if cocktail.alcoholic == true %>
+                      <p><i>Contains alcohol</i></p>
+                    <% elsif %>
+                      <br>
+                      <p><i>Does not contain alcohol</i></p>
+                    <% end %>
+                  </div>
+                  <div class="index-card-bottom" >
+                    <% all_not_in_stock_ingredient_names_of_found_cocktails = [] %>
+                    <% all_in_stock_ingredient_names_of_found_cocktails = [] %>
+                    <% all_highlited_or_not_ingredient_names_of_found_cocktails = [] %>
+                    <% cocktail.measurements.each do [measurement] %>
+                      <% if @user_ingredients_in_stock.pluck(:ingredient_id).include?(@ingredients.find(measurement.ingredient_id).id)%>
+                        <%# in stock %>
+                        <% all_highlited_or_not_ingredient_names_of_found_cocktails << @ingredients.find(measurement.ingredient_id).name.titleize %>
+                      <% elsif !@user_ingredients_in_stock.pluck(:ingredient_id).include?(@ingredients.find(measurement.ingredient_id).id)%>
+                        <%# NOT in stock %>
+                        <% all_highlited_or_not_ingredient_names_of_found_cocktails << "<span class="missing-ingredient"> #{@ingredients.find(measurement.ingredient_id).name.titleize}</span>" %>
+                      <% end %>
                     <% end %>
                     <p>
-                      <span class="missing-ingredient">
-                        <%= all_not_in_stock_ingredient_names_of_found_cocktails.to_sentence %>
-                      </span>
-                      <%= all_in_stock_ingredient_names_of_found_cocktails.to_sentence %>
+                      <%= all_highlited_or_not_ingredient_names_of_found_cocktails.to_sentence %>
                     </p>
                     <%# ADD TO MY BAR BUTTON DISPLAY LOGIC %>
                     <% saved_cocktail = SavedCocktail.find_by(user_id: current_user.id, cocktail_id: cocktail.id)  %>
@@ -171,12 +177,14 @@
                     <% end %>
                   </div>
                 </div>
-
               <%# Modal, non-displayed, which is the Show Card %>
-
               <div class="modal" id="myModal-<%=cocktail.id %>">
                 <div class="show-card-wrap modal-content">
-                    <div class="show-cocktail-name"><h4><%= cocktail.name.titleize %></h4></div>
+                  <div class="show-cocktail-name">
+                    <h4>
+                      <%= cocktail.name.titleize %>
+                    </h4>
+                  </div>
                   <div class="show-card-header">
                     <div class="show-card-ingredients">
                       <ul>
@@ -189,22 +197,21 @@
                     <div class="show-card-photo" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cocktail.image %>)">
                     </div>
                   </div>
-                <div class="show-card-bottom">
-                  <div class="show-card-method">
-                    <p><strong>Method: </strong><%= cocktail.instructions %></p>
-                  </div>
-                  <div class="show-card-footer">
+                  <div class="show-card-bottom">
+                    <div class="show-card-method">
+                      <p><strong>Method: </strong><%= cocktail.instructions %></p>
+                    </div>
+                    <div class="show-card-footer">
                       <% if cocktail.alcoholic == true %>
                       <p><i>Contains alcohol</i></p>
                       <% elsif %>
                       <br>
                       <p><i>Does not contain alcohol</i></p>
                       <% end %>
+                    </div>
                   </div>
                 </div>
               </div>
-              </div>
-
             <% end %>
           </div>
         <% end %>
