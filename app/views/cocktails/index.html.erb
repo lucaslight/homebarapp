@@ -27,7 +27,9 @@
                     <strong>Ingredients</strong>
                   </p>
                   <% cocktail.measurements.each do |measurement| %>
-                    <li><%= measurement.quantity %> <%= measurement.unit %> of <%= @ingredients.find(measurement.ingredient_id).name %></li>
+                    <li>
+                      <%= measurement.quantity %> <%= measurement.unit %> of <%= @ingredients.find(measurement.ingredient_id).name %>
+                    </li>
                   <% end %>
                 </ul>
               </div>
@@ -153,20 +155,15 @@
                     <% end %>
                   </div>
                   <div class="index-card-bottom" >
-                    <% all_not_in_stock_ingredient_names_of_found_cocktails = [] %>
-                    <% all_in_stock_ingredient_names_of_found_cocktails = [] %>
-                    <% all_highlited_or_not_ingredient_names_of_found_cocktails = [] %>
-                    <% cocktail.measurements.each do [measurement] %>
-                      <% if @user_ingredients_in_stock.pluck(:ingredient_id).include?(@ingredients.find(measurement.ingredient_id).id)%>
-                        <%# in stock %>
-                        <% all_highlited_or_not_ingredient_names_of_found_cocktails << @ingredients.find(measurement.ingredient_id).name.titleize %>
-                      <% elsif !@user_ingredients_in_stock.pluck(:ingredient_id).include?(@ingredients.find(measurement.ingredient_id).id)%>
-                        <%# NOT in stock %>
-                        <% all_highlited_or_not_ingredient_names_of_found_cocktails << "<span class="missing-ingredient"> #{@ingredients.find(measurement.ingredient_id).name.titleize}</span>" %>
+                    <% decorated_ingredients = cocktail.measurements.map do |measurement| %>
+                      <% if @user_ingredients_in_stock.pluck(:ingredient_id).include?(@ingredients.find(measurement.ingredient_id).id)%> <%# in stock %>
+                        <% "#{@ingredients.find(measurement.ingredient_id).name.titleize}" %>
+                      <% else # NOT in stock %>
+                        <% tag.span(@ingredients.find(measurement.ingredient_id).name.titleize, class: 'missing-ingredient') %>
                       <% end %>
                     <% end %>
                     <p>
-                      <%= all_highlited_or_not_ingredient_names_of_found_cocktails.to_sentence %>
+                      <%= safe_join(decorated_ingredients, ", ") %>
                     </p>
                     <%# ADD TO MY BAR BUTTON DISPLAY LOGIC %>
                     <% saved_cocktail = SavedCocktail.find_by(user_id: current_user.id, cocktail_id: cocktail.id)  %>
