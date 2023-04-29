@@ -30,9 +30,7 @@ class SavedCocktailsController < ApplicationController
 
   def create_from_index
     new_user_cocktail = Cocktail.find(params[:id])
-    if current_user
-      SavedCocktail.create(user: current_user, cocktail_id: new_user_cocktail.id)
-    end
+    SavedCocktail.create(user: current_user, cocktail_id: new_user_cocktail.id) if current_user
     redirect_to cocktails_path
   end
 
@@ -41,7 +39,6 @@ class SavedCocktailsController < ApplicationController
 
   def destroy
     SavedCocktail.find(params[:id]).destroy
-    # if else statement for the redirection
     # redirect_to cocktails_path, status: :see_other
     redirect_back(fallback_location: root_path)
   end
