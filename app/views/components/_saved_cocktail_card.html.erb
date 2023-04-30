@@ -5,19 +5,18 @@
     <div class="saved-cocktail-header">
       <div class="saved-cocktail-stock">
         <p>
-          <% case %>
-            <%# raise %>
-          <% when num == 0 %>
-            <%#= 'Ready to go' %>
+          <% case num%>
+          <% when 0 %>
+            <%# 'Ready to go' %>
             <i class="fa-solid fa-champagne-glasses fa-lg"></i>
-          <% when num == 1 %>
-            <%#= '-1' %>
+          <% when 1 %>
+            <%# 'missing 1' %>
             1 <i class="fa-solid fa-basket-shopping fa-xs"></i>
-          <% when num == 2 %>
-            <%#= '-2' %>
+          <% when 2 %>
+            <%# 'missing 2' %>
             2 <i class="fa-solid fa-basket-shopping fa-xs"></i>
           <% else %>
-            <%#= 'more than two ingredients missing' %>
+            <%# 'missing more than two ingredients' %>
             <i class="fa-solid fa-cart-shopping fa-lg"></i>
           <% end %>
         </p>
