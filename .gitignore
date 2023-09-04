@@ -8,8 +8,8 @@
 /.bundle
 
 # Ignore all logfiles and tempfiles.
-/log/*
-/tmp/*
+/log/*.log
+/tmp
 !/log/.keep
 !/tmp/.keep
 
